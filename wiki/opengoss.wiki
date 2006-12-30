@@ -1,9 +1,8 @@
-#summary One-sentence summary of this page.
 #labels NGOSS,OSGi
-Opengoss=open+NGOSS
+=OpenGoss=Open+NGOSS
+
 = Introduction =
 Opengoss is dedicated to build an open, collaborative and integrated seamlessly NGOSS solution.
 
 = Details =
-
 
