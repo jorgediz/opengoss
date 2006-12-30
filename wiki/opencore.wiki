@@ -1,3 +1,4 @@
+#labels OSGi,Equinox
 The microkernel of OpenGoss project that is build on OSGi and Equinox.
 
 = Introduction =
