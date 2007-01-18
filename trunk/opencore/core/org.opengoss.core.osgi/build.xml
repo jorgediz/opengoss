@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     2006-12-23 下午07:10:19                                                        
+
+     org.opengoss.core.osgi    
+     OpenCore OSGi Core
+                   
+     Ery Lee(ery.lee@gmail.com)                                                                
+     ====================================================================== -->
+<project name="org.opengoss.core.osgi" default="jar">
+	<description>
+            OpenCore OSGi Core
+    </description>
+	<property name="version" value="1.1.0" />
+	<!-- ================================= 
+          target: jar              
+         ================================= -->
+	<target name="jar" depends="compile" description="--> OpenCore OSGi Core">
+			<jar jarfile="${release.folder}/plugins/${ant.project.name}_${version}_${release.time}.jar" manifest="META-INF/MANIFEST.MF">
+				<fileset dir=".">
+					<include name="plugin.properties" />
+					<include name="MATA-INF/**" />
+					<include name="schema/*" />
+					<include name="lib/*" />
+				</fileset>
+				<fileset dir="bin" />
+			</jar>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: complile the project                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="compile">
+		<ant antfile="eclipse.build.xml" target="build" />
+	</target>
+
+</project>

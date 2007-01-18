@@ -1,0 +1,5 @@
+org.opengoss.core
+org.opengoss.core.internal
+org.opengoss.core.internal.descriptor
+org.opengoss.core.internal.registry
+org.opengoss.core.util

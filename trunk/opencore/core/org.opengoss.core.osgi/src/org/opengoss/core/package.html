@@ -1,0 +1,21 @@
+<html>
+<body>
+
+Core plugin of OpenCore SOA Platform to support Ioc and ExtensionPoint based on OSGi.
+</br>
+</br>Core Plugin Offers:
+<ul>
+	<li>Plugin level IoC: property injection, constructor injection
+	<li>ExtensionPoint and Extension
+	<li>Parse the "META-INF/plugin.xml", inject dependecies between services 
+	and bind the extentionPoint and extentions.
+</ul>
+
+</br>Plugins built on OpenCore SOA platform should:
+<ul>
+	<li>Configure a "META-INF/plugin.xml" file
+	<li>Code an activator class that extends {@link org.opengoss.core.PluginActivator}.
+</ul>
+
+</body>
+</html>
