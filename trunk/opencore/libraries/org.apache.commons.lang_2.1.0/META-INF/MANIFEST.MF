@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Common Lang Library Plug-in
+Bundle-SymbolicName: org.apache.commons.lang
+Bundle-Version: 2.1.0
+Bundle-ClassPath: .,
+ lib/commons-lang-2.1.jar
+Bundle-Vendor: www.apache.org
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.apache.commons.lang;version="2.1.0",
+ org.apache.commons.lang.builder;version="2.1.0",
+ org.apache.commons.lang.enums;version="2.1.0",
+ org.apache.commons.lang.exception;version="2.1.0",
+ org.apache.commons.lang.math;version="2.1.0",
+ org.apache.commons.lang.mutable;version="2.1.0",
+ org.apache.commons.lang.time;version="2.1.0"
