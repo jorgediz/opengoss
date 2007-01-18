@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Beanutils Library
+Bundle-SymbolicName: org.apache.commons.beanutils
+Bundle-Version: 1.7.0
+Bundle-ClassPath: .,
+ lib/commons-beanutils-1.7.0.jar
+Bundle-Vendor: www.apache.org
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.apache.commons.beanutils;version="1.7.0",
+ org.apache.commons.beanutils.converters;version="1.7.0",
+ org.apache.commons.beanutils.locale;version="1.7.0",
+ org.apache.commons.beanutils.locale.converters;version="1.7.0"
+Require-Bundle: org.apache.commons.log
