@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Told the newcomer how to get familar with the Opengoss Platform.
 #labels Phase-Support
 
 = Introduction =
@@ -14,5 +14,4 @@ Take a look at the source of the samples.
 Take a look at the user guide.
 
 How to build from the source code?
-
 
