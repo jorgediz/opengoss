@@ -1,0 +1,13 @@
+#summary The vision of the Opengoss Platform
+#labels Phase-Requirements
+
+= Introduction =
+
+TODO descript the vision and the location of the platform.
+
+
+= Details =
+
+1.A methodogy about MDA in EMS/NMS.
+2.A powerful runtime platform which can simplified the routine work.
+3.An accumulated platform which can support a company or an organization to growth.
