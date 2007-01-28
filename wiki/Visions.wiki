@@ -7,7 +7,7 @@ Opengoss is an open-source based, full stack EMS/NMS platform.
 It does not provide the end-user function, but provide the developer helpful function.
 
 
-= A methodogy about MDA in EMS/NMS domain=
+= A methodology about MDA in EMS/NMS domain=
 
   There is a simplified model driven language in Opengoss Platform, it's business-oriented, and implementation-related model language. 
 
