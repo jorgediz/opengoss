@@ -3,14 +3,35 @@
 
 = Introduction =
 
-TODO descript the vision and the location of the platform.
+Opengoss is an open-source based, full stack EMS/NMS platform.
+It does not provide the end-user function, but provide the developer helpful function.
 
 
 = Details =
 
-1.A methodogy about MDA in EMS/NMS.
+1.A methodogy about MDA in EMS/NMS domain.
 
-2.A powerful runtime platform which can simplified the routine work.
+  There is a simplified model driven language in Opengoss Platform, it's business-oriented, and implementation-related model language. 
+
+  We name this language as OML(Opengoss Model Language).
+  
+  OML combines the user's business and developer's implementations. It descripts the user's business from the developer's view.
+
+  In fact, the model wroten by OML is not a pure PIM(Platform Independed Model), or PSM(Platform Specified Model), It's just an Opengoss co-related model language, it's between the PIM and PSM.
+
+  OML orients the most populated architecture, it models the distributed computer system with a server role and client role (not CS architecture), client send request to the server by interfaces and models.
+  
+  The business model defined by OML includes: 
+
+   (1).Domain Entity
+
+   (2).Service Operations
+
+   (3).Service Messages
+
+   (4).Search/Retrieve Models.
+
+2.A powerful runtime platform which can simplified the routine development work greatly.
 
 3.An accumulated platform which can support a company or an organization to growth.
 
