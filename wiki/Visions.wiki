@@ -39,4 +39,4 @@ It does not provide the end-user function, but provide the developer helpful fun
 
 = An accumulated platform which can support a company or an organization to growth =
 
-  Because of all the runtime platforms of Opengoss are based on our OpenCore technology, which is a OSGi implementation.  So we provides the first-stage accumulatation.
+  Because of all the runtime platforms of Opengoss are based on OpenCore technology, which is a microkernel, pure component based and service oriented software infrastructure built on OSGi and Equinox.  We provides the first-stage accumulatation.
