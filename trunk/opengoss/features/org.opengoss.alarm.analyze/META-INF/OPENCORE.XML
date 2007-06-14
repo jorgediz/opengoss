@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="Analyze" version="1.0">
+<!--  
+	<service id="Processor" scope="component" class="org.opengoss.alarm.interal.analyze.ProcessorMock">
+		<interface name="org.opengoss.alarm.analyze.IAnalyzeProcessor"/>
+		<constructor>
+			<param ref="AnalyzeEngine"/>
+		</constructor>
+	</service>
+-->	
+	<service id="AnalyzeEngine" scope="application" class="org.opengoss.alarm.interal.analyze.AnalyzeEngine">
+		<interface name="org.opengoss.alarm.analyze.IAnalyzeEngine"/>
+		<parem name="engine" ref="AlarmEngine:Engine"/>
+	</service> 
+</plugin>

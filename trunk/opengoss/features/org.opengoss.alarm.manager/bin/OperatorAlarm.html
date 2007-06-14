@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Operator Index</title>
+	<link rel="STYLESHEET" type="text/css" href="css/temporaryCss.css"/> 
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript" src="js/jsonrpc.js"></script>
+	<script type="text/javascript" src="js/AlarmInfoController.js"></script>
+	<script type="text/javascript" src="js/AlarmInfoResultRender.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.widget.Dialog");
+		dojo.require("dojo.widget.CommonTable");
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.Spinner");
+	</script>
+</head>
+<body>
+<div id="alarmCommonTable" dojoType="CommonTable" searchFormId="searchForm" modifyFormId="modifyForm">
+	<div>
+		<form id="searchForm">
+			<table>
+				<tr>
+					<td>按告警类型查询:</td>
+					<td><input type="text" id="searchType"></td>
+					<td><input type="button" id="searchOK" value="search" onclick="queryAlarmByType();"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div dojoType="dialog" id="modifyForm" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+		<form id="update">
+			<table id="dialogTable">
+				<tr>
+					<td>memo:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td align="center">
+						<input type="button" id="updateOk" value="OK" onclick="updateAlarm();"/></td>
+					<td align="center">
+						<input type="button" id="updateCancel" value="Cancel" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div dojoType="dialog" id="detailForm" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+		<form id="detail">
+			<table id="dialogTable">
+				<tr>
+					<td>name:</td>
+					<td><label id="name"></label></td>
+				</tr>
+				<tr>
+					<td>alarmKey:</td>
+					<td><label id="alarmKey"></label></td>
+				</tr>
+				<tr>
+					<td>vendorAlarmId:</td>
+					<td><label id="vendorAlarmId"></label></td>
+				</tr>
+				<tr>
+					<td>vendorAlarmName:</td>
+					<td><label id="vendorAlarmName"></label></td>
+				</tr>
+				<tr>
+					<td>alarmType:</td>
+					<td><label id="alarmType"></label></td>
+				</tr>
+				<tr>
+					<td>probableCause:</td>
+					<td><label id="probableCause"></label></td>
+				</tr>
+				<tr>
+					<td>specialProblem:</td>
+					<td><label id="specialProblem"></label></td>
+				</tr>
+				<tr>
+					<td>perceivedSeverity:</td>
+					<td><label id="perceivedSeverity"></label></td>
+				</tr>
+				<tr>
+					<td>alarmRaisedTime:</td>
+					<td><label id="alarmRaisedTime"></label></td>
+				</tr>
+				<tr>
+					<td>alarmClearedTime:</td>
+					<td><label id="alarmClearedTime"></label></td>
+				</tr>
+				<tr>
+					<td>ackTime:</td>
+					<td><label id="ackTime"></label></td>
+				</tr>
+				<tr>
+					<td>ackUserId:</td>
+					<td><label id="ackUserId"></label></td>
+				</tr>
+				<tr>
+					<td>location:</td>
+					<td><label id="location"></label></td>
+				</tr>
+				<tr>
+					<td>alarmSource:</td>
+					<td><label id="alarmSource"></label></td>
+				</tr>
+				<tr>
+					<td>additionalInfo:</td>
+					<td><label id="additionalInfo"></label></td>
+				</tr>
+				<tr>
+					<td>firstOccurence:</td>
+					<td><label id="firstOccurence"></label></td>
+				</tr>
+				<tr>
+					<td>lastOccurence:</td>
+					<td><label id="lastOccurence"></label></td>
+				</tr>
+				<tr>
+					<td>repeatNumbers:</td>
+					<td><label id="repeatNumbers"></label></td>
+				</tr>
+				<tr>
+					<td>memo:</td>
+					<td><label id="memo"></label></td>
+				</tr>
+				<tr>
+					<td>recordedTime:</td>
+					<td><label id="recordedTime"></label></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align="center">
+						<input type="button" id="detailOk" value="OK"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<table dojoType="filteringTable" id="alarmTable" width="100%" border="1">
+			<thead>
+				<tr>
+					<th field="id" nosort="true"></th>
+					<th field="name">告警名称</th>
+					<th field="alarmType">告警类型</th>
+					<th field="perceivedSeverity">告警级别</th>
+					<th field="vendorAlarmId">厂商标识</th>
+					<th field="alarmSource">告警来源</th>
+					<th field="memo">备注</th>
+				</tr>
+			</thead>
+			<tbody id="alarmTbody">
+			</tbody>
+	</table>
+</div>
+</body>
+</html>

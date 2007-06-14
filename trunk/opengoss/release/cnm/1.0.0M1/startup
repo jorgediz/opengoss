@@ -1,0 +1,1 @@
+java -Dorg.opengoss.core.application=CNM -Dorg.opengoss.web.server.config=./etc/web.server.properties -jar startup.jar -clean -console

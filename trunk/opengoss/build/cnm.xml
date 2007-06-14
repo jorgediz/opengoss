@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     2006-12-23 下午05:52:43                                                        
+
+     CNM
+     Customer Network Management System    
+     
+                   
+     Ery Lee(ery.lee@gmail.com)                                                              
+     ====================================================================== -->
+<project name="CNM" default="release">
+	<description>
+            Release the cnm product.
+ </description>
+	<property name="opengoss.root" value="/opt/opengoss"/>
+	<property name="release.folder" value="${opengoss.root}/release/cnm/1.0.0M1" />
+	<property name="relase.version" value="1.0.0M1"/>
+	<property name="release.time" value="v20070101" />
+	<property name="opengoss.core" value="${opengoss.root}/core"/>
+	<property name="opengoss.libraries" value="${opengoss.root}/libraries"/>
+	<property name="opengoss.platform" value="${opengoss.root}/platform"/>
+	<property name="opengoss.features" value="${opengoss.root}/features"/>
+	<!-- ================================= 
+          target: release              
+         ================================= -->
+	<target name="release">
+		<ant dir="${opengoss.libraries}/org.apache.commons.log_2.0.0" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.libraries}/org.opengoss.web.lib" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.libraries}/org.springframework.allinone_2.0" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.core}/org.opengoss.core.console" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.core}/org.opengoss.core.osgi" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.dao.core" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.dao.hibernate" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.platform.esper" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.snmphibernate.api" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.snmphibernate.impl.snmp4j" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.web.core" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.web.dojo" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.web.jetty" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.platform}/org.opengoss.web.prototype" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.alarm.core" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.alarm.engine" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.probe.trap" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.alarm.engine" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.alarm.manager" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.alarm.analyze" antfile="build.xml" target="jar"/>	
+		<ant dir="${opengoss.features}/org.opengoss.cnm.web" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.cnm.security" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/org.opengoss.cnm.log" antfile="build.xml" target="jar"/>
+		<ant dir="${opengoss.features}/com.tangramoss.cnm.customer" antfile="build.xml" target="jar"/>
+	</target>
+	<target name="clean">
+		<delete> 
+			<fileset dir="${release.folder}/plugins" includes="org.opengoss.*"></fileset> 
+		</delete>
+	</target>
+</project>

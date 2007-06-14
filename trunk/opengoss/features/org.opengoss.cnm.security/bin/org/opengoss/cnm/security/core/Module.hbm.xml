@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+		package="org.opengoss.cnm.security.core">
+	
+	 <class name="Module" table="sm_module" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="module_id">
+			<generator class="native" />
+		</id>		                   
+		<property name="name"></property>
+		<property name="description"></property>
+		<property name="imgUrl" ></property>
+
+		<list name="pages" table="sm_module_page" lazy="false" >
+		  <key column="module_id" />
+		  <index column="order_pages"/>
+		  <many-to-many class="Page" />
+		</list>
+		
+	</class>
+	
+</hibernate-mapping>

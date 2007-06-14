@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin id="Esper" version="1.0">
+	<service id="EsperService" scope="application" class="org.opengoss.platform.internal.esper.EsperService">
+		<interface name="org.opengoss.platform.esper.IEsperService"/>
+	</service>
+</plugin>

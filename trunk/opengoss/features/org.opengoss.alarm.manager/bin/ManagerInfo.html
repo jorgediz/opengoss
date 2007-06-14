@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Manager Infomation</title>
+<script type="text/javascript" src="/dojo/dojo.js"></script>
+<script type="text/javascript" src="js/ManagerInfoController.js"></script>
+<script type="text/javascript">
+	dojo.require("dojo.widget.Spinner");
+	
+	
+</script>
+</head>
+<body>	
+	<div id="tips"> 
+		基本信息 
+	</div>
+	<hr />
+		<fieldset >			
+			<legend>必填信息</legend>			
+			<div >
+			<label > 登录名: </label><input  type="text"  fieldName="userName"
+			 	dojoType="ValidationTextBox"
+								required="true" 
+								ucfirst="true"
+								missingMessage="*" id="userName"/>
+			</div>
+			<div>
+			<label > 密码: </label><input class="secText" type="text"  fieldName="mail"
+				dojoType="EmailTextbox"
+						trim="true" 
+						required="true" 
+						invalidMessage="Invalid"
+						missingMessage="*" id="oldPwd"/>
+			</div>
+			<div>
+			<label> 新密码: </label>  <input  type="text"  fieldName = "password"
+				dojoType="ValidationTextBox"
+								required="true" 
+								ucfirst="true"
+								missingMessage="*" id="newPwd"/>
+			</div>
+			<div>
+			<label > 确认密码: </label><input class="secText" type="text"  
+				dojoType="ValidationTextBox"
+								required="true" 
+								ucfirst="true"
+								missingMessage="*" id="affirmPwd"/>
+			</div>
+			<p></p>
+		</fieldset>
+		<fieldset id="option">
+			<legend>可选信息</legend>
+				<div><label >公司:</label> <input type="text" id="conpany"/>
+				     <label >部门:</label> <input type="text" id="partment"/>
+				 </div><BR>
+				<div><label >手机号码: </label> <input type="text" id="cellPhone"/> 
+					 <label >固定电话:</label> <input type="text" id="telPhone"/>
+				</div><BR>
+				<div> 
+					<label > 地址:</label> <input type="text" size="70" id="address"/>
+				</div>
+				
+				<p></p>		
+		</fieldset>
+	<div id="bgroup" align="right">
+	
+		<input type="button" id="modify_ok"  onclick="modifyInfo()" value="确定"/>
+		
+		<input type="button" id="modify_Cancel"  value="取消"/>
+		
+	</div>
+</body>
+</html>

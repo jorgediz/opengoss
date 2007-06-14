@@ -1,0 +1,27 @@
+<plugin id="Alarmmgr" version="1.0">
+	
+	<service id ="ManagerService" scope="component" class="org.opengoss.alarm.manager.internal.core.ManagerService" >
+		<interface name="org.opengoss.alarm.manager.core.IManagerService" />
+		<property name="alarmRuleDao" ref="AlarmCore:AlarmRuleDao"/>
+		<property name="customerDao" ref="Customer:CustomerDao"/>
+		<property name="alarmDao" ref="AlarmCore:AlarmDao"/>
+	</service>
+	
+	<service id="PersonalInfoService" scope="component" class="org.opengoss.alarm.manager.internal.core.PersonalInfoService" >
+		<interface name="org.opengoss.alarm.manager.core.IPersonalInfoService"/>
+		<property name="personalInfoSer" ref="security:UserService"/>
+	</service>
+	
+	<service id ="AlarmService" scope="component" 
+		class="org.opengoss.alarm.manager.internal.core.AlarmInfoService" >
+		<interface name="org.opengoss.alarm.manager.core.IAlarmInfoService" />
+		<property name="alarmDao" ref="AlarmCore:AlarmDao"/>
+	</service>
+	
+	<service id ="OperatorRuleService" scope="component" 
+		class="org.opengoss.alarm.manager.internal.core.OperatorRuleService" >
+		<interface name="org.opengoss.alarm.manager.core.IOperatorRuleService" />
+		<property name="alarmRuleDao" ref="AlarmCore:AlarmRuleDao"/>
+	</service>
+	
+</plugin>

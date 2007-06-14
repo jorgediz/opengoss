@@ -1,0 +1,24 @@
+table {
+			font-family:Lucida Grande, Verdana;
+			font-size:12px;
+			width:100%;
+			border:1px solid #ccc;
+			cursor:default;
+			}
+table td,
+table th {
+			border-right:1px solid #999;
+			padding:1px;
+			font-weight:normal;
+			}
+table thead td,
+table thead th {
+			background:#94BEFF;
+			}
+#dialogTable {
+			background: #ffffff;
+			width:auto;
+			}
+label {
+			width:25px;
+			}

@@ -1,0 +1,16 @@
+<plugin id="Customer" version="1.0" >
+
+	<service id="CustomerDao" scope="application" class="com.tangramoss.cnm.internal.dao.HibernateCustomerDao">
+		<interface name="com.tangramoss.cnm.customer.dao.ICustomerDao"/>
+		<constructor>
+			<param ref="Hibernate:SessionFactory"/>
+		</constructor>
+		
+	</service>
+		<service id="CustomerMgr" scope="application" class="com.tangramoss.cnm.internal.service.CustomerMgr">
+		<interface name="com.tangramoss.cnm.customer.service.ICustomerMgr"/>
+		<property name="hibernateCustomerDao" ref="CustomerDao" />
+		<property name="semDao" ref="Security:SemDao" />
+	</service>
+	
+</plugin>

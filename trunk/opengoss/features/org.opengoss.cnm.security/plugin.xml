@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.opengoss.database.domain.object">
+	   <domainObject class="org.opengoss.cnm.security.core.Navigator"/>
+	   <domainObject class="org.opengoss.cnm.security.core.Module"/>
+	   <domainObject class="org.opengoss.cnm.security.core.Page"/>
+		<domainObject class="org.opengoss.cnm.security.core.AclEntry"/>
+		<domainObject class="org.opengoss.cnm.security.core.Permission"/>
+		<domainObject class="org.opengoss.cnm.security.core.Role"/>
+		<domainObject class="org.opengoss.cnm.security.core.User"/>		
+		<domainObject class="org.opengoss.cnm.security.core.Resource"/>	
+   </extension>
+</plugin>

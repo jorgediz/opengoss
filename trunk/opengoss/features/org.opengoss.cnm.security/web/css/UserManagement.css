@@ -1,0 +1,166 @@
+@CHARSET "UTF-8";
+
+tbody.scrollContent tr.selected td {
+	background: yellow;
+}
+
+tbody.scrollContent tr.alternateRow td {
+	background: #e3edfa;
+}
+
+tbody.scrollContent tr:hover td {
+	background: #a6c2e7;
+}
+
+table thead th {
+	background: #94BEFF;
+}
+
+tbody.scrollContent tr.selected:hover td {
+	background: #ff3;
+}
+
+body{
+	font-size: 70%
+}
+#buttonGroup {
+	float: right;
+}
+
+#buttonGroup input {
+	margin-left: 10px;
+}
+
+
+#modifyDialog {
+	font-size: small;
+	background: #eeeeee;
+}
+
+#addDialog {
+	background: #eeeeee;
+}
+
+/*
+		
+		*/
+
+#modifyCancel {
+	margin-right: 85px;
+	width: 60px;
+}
+
+#ok {
+	margin-right: 20px;
+	width: 60px;
+}
+
+#addCancel {
+	margin-right: 85px;
+	width: 60px;
+}
+
+fieldset {
+	width: 740px;
+	margin: 5px;
+	border: 2px solid #ccc;
+}
+
+label {
+	width: 100px;
+}
+
+label.firstColumn {
+	margin-left: 10px;
+	width: 120px;
+}
+
+label.secColumn {
+	position: relative;
+	left: 30px;
+	width: 120px;
+}
+
+label.thColumn {
+	margin-left: 60px;
+	width: 120px;
+}
+
+input [type="text"] {
+	width: 160px;
+}
+
+input [type="button"] {
+	width: 30px;
+}
+
+#perAssign {
+	color: #798EC5;
+	font-weight: bold;
+	width: 200px;
+	margin-left: 10px;
+}
+
+input.secText {
+	margin-left: 30px;
+}
+
+select {
+	width: 160px;
+}
+
+fieldset.sel {
+	width: 280px;
+	height: 150px;
+}
+
+legend {
+	color: #6898CC;
+	font-weight: bold;
+}
+
+input.selButton {
+	width: 20px;
+}
+
+#option {
+	padding-bottom: 5px;
+}
+
+#role {
+	width: 200px;
+	height: 150px;
+	margin-left: 40px;
+	margin-bottom: 7px;
+}
+
+#customer {
+	width: 200px;
+	height: 150px;
+	margin-left: 40px;
+	margin-bottom: 7px;
+}
+
+input.selButton {
+	width: 40px;
+}
+
+#choose {
+	margin-bottom: 5px;
+}
+
+#c,#s {
+	color: #798EC5;
+}
+
+#tips {
+	font-weight: bold;
+}
+
+#addRemove {
+	width: 40px;
+}
+#selectrole{
+	width: 200px;
+	height: 20px;
+	

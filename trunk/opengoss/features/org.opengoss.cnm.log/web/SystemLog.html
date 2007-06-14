@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>日志管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<script type="text/javascript" src="/dojo/dojo.js"></script>
+<script type="text/javascript" src="jsonrpc.js"></script>
+
+<script type="text/javascript" src="js/FormBinder.js"></script>
+<script type="text/javascript" src="js/SystemLog.js"></script>
+<script type="text/javascript" src="js/SystemLogRender.js"></script>
+<link href="css/SearchForm.css" rel="stylesheet" type="text/css" />
+<link href="css/SystemLog.css" rel="stylesheet" type="text/css" />
+</head>
+<body  onLoad="loadAllSysLog();">
+<strong>系统日志管理</strong> 
+ <div id="commontable" dojoType="CommonTable" 
+     searchFormId="searchPane" >
+	<div id="searchPane" >
+		<fieldset id="searchForm">
+			 <strong>查询内容:</strong>
+				<br class="clear" />
+			 <div id="firstColumn">
+		
+			 	<p><label>等级:</label> <input type="text" fieldName="level"/>
+			 	</p>
+			 	<p><label>结果:</label> <input type="text" fieldName="result"/>
+			 	</p>
+			 	
+			 </div>
+			 <div>
+			 	  <p><label>时间:</label> <input dojoType="dropdowndatepicker" id="time"/>
+			 	</p>
+			 	
+			 	<p><label>描述:</label> <input type="text" fieldName="desc"/>
+			 	</p>
+			 	
+			 </div>
+				 <br class="clear" />
+			 <div>
+			 	<input type="button" 
+			 	name="search" onclick="findLog();"  value="查询" />
+			 </div>
+				 <br class="clear" />
+			
+		 </fieldset>
+	</div>
+	  <table id="ftable" dojoType="filteringTable" id="rules" width="100%" border="1">
+		    <thead>
+		        <tr>
+		          	<th field="level" width="10%" dataType="String" >等级</th>
+					<th field="time" width="15%" dataType="Date">时间</th>
+					<th field="result" width="15%" dataType="String" >结果</th>
+					<th field="description" width="*" dataType="String">描述</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		
+		    </tbody>
+	</table>
+</div>
+		<div id="pagination">
+				 <input type="button" name="first" value="&lt;&lt;" /> 
+				 <input type="button" name="forward" value="&lt;" />
+				 <input dojoType="IntegerSpinner" 
+							value="10" 
+							delta="1" 
+							min="0" 
+							max="100" 
+							signed="never" 
+							separator="," 
+							maxlength="10"
+							size=2 
+							 />
+				 <input type="button" name="backward" value=">" />
+				 <input type="button" name="end" value=">>" />				 
+
+
+		 </div>
+</body>
+</html>
+
+

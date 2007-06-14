@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.security.core">
+	<class name="User" table="sm_user" lazy="false" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string"></property>
+		<property name="password" type="string"></property>
+		<property name="userName" type="string"></property>
+		<property name="mail" type="string"></property>
+		<property name="address" type="string"></property>
+		<property name="mobile" type="string"></property>
+		<property name="phone" type="string"></property>
+		<property name="company" type="string"></property>
+		<property name="department" type="string"></property>
+		<property name="status" type="string"></property>
+		<property name="fileRule" type="string"></property>
+	</class>
+	
+	<query name="findUserByName"><![CDATA[
+		from User user where user.name=?
+	]]></query>
+	
+	
+ 	<query name="findUserByNameAndStatus"><![CDATA[
+		from User user where user.name=? and user.status=?
+	]]></query>
+
+	
+ 	<query name="queryActiveUser"><![CDATA[
+		from User user where user.status = 'active'
+	]]></query>
+	
+	
+	
+ 	<query name="queryUserByNameAndPwd"><![CDATA[
+		from User user where user.name = ? and user.password = ?
+	]]></query>
+	
+</hibernate-mapping>

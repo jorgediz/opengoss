@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>主菜单</title>
+    <script type="text/javascript" src="/dojo/dojo.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        dojo.hostenv.writeIncludes();
+        var modules = null;
+        function wipeIn(id){
+            if(modules == null){
+                modules = [];
+                var elements = document.getElementsByTagName("p");
+                for(var i=0; elements.length; i++){
+                    modules[i] = elements[i].id;
+                }
+            }
+            for(var i=0; i<modules.length; i++){
+                if(modules[i]!=id){
+                    dojo.lfx.html.wipeOut(modules[i],100).play();
+                }
+            }
+            dojo.lfx.html.wipeIn(id,200).play();
+        }
+    </script>
+    <style type="text/css">
+        html, body {
+            margin:0;
+            height: 100%;
+        }
+        p{
+            width:100%;
+            background-color:#CCCCCC;
+            text-align:center;
+            margin:0;
+        }
+        p a {
+            list-style:none;
+        }
+        p a:hover{
+            color:#ffffff;
+            background-color:#1164cd;
+        }
+        img {
+            border: 1px solid #000000
+        }
+    </style>
+</head>
+
+<body onload="wipeIn('user');">
+
+<#list navigator.modules as module>
+    <img src="${module.imgUrl}" alt="${module.description}" onclick="wipeIn('${module.name}')"/>
+    <p id="${module.name}">
+    <#list module.pages as page>
+            <a href="${page.url}" target="mainFrame">${page.description}</a><br/>
+    </#list>
+    </p>
+</#list>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+#Mon Dec 25 15:12:40 CST 2006
+=\=\=\=\=\=\=
+<<<<<<<=.mine
+>>>>>>>=.r546
+eclipse.preferences.version=1
+encoding//META-INF/MANIFEST.MF=UTF-8
+encoding//WEB-INF/web.xml=UTF-8
+encoding//web/ForwardRuleManage.html=UTF-8
+encoding//web/js/AlarmInfoResultRender.js=UTF-8
+encoding//web/js/CustomerAlarmController.js=UTF-8
+encoding//web/js/CustomerAlarmResultRender.js=UTF-8
+encoding//web/js/ForwardRuleManageController.js=UTF-8
+encoding//web/js/ForwardRuleManageResultRender.js=UTF-8
+encoding//web/js/ManagerInfoController.js=UTF-8
+encoding//web/js/activeBusAlarmController.js=UTF-8
+encoding//web/js/activeBusAlarmResultRender.js=UTF-8
+encoding//web/js/autoAcknowledgeController.js=UTF-8
+encoding//web/js/autoAcknowledgeResultRender.js=UTF-8
+encoding//web/js/cusInfoManageController.js=UTF-8
+encoding//web/js/cusInfoResultRender.js=UTF-8
+encoding//web/js/jsonrpc.js=UTF-8
+encoding/<project>=UTF-8

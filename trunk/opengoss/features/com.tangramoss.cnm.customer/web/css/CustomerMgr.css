@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+
+tbody.scrollContent tr.selected td {
+	background: yellow;
+}
+
+tbody.scrollContent tr.alternateRow td {
+	background: #e3edfa;
+}
+
+tbody.scrollContent tr:hover td {
+	background: #a6c2e7;
+}
+
+table thead th {
+	background: #94BEFF;
+}
+
+tbody.scrollContent tr.selected:hover td {
+	background: #ff3;
+}
+
+
+label {
+	width: 100px;
+}
+
+label.firstColumn {
+	margin-left: 10px;
+	width: 120px;
+}
+
+label.secColumn {
+	position: relative;
+	left: 30px;
+	width: 120px;
+}
+
+label.thColumn {
+	margin-left: 60px;
+	width: 120px;
+}
+
+#ok {
+	width: 60px;
+	margin-right: 20px;
+}
+
+#addCancel {
+	width: 60px;
+	margin-right: 85px;
+}
+
+#modifyCancel {
+	width: 60px;
+	margin-right: 85px;
+}
+
+
+
+#modifyDialog {
+	background: #eeeeee;
+}
+
+input [type="file"] {
+	width: 100px;
+}
+
+.clear {
+	clear: both;
+}
+
+#addDialog {
+	background: #eeeeee;
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app 
+   xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+   version="2.5"> 
+  <display-name>Customer</display-name>
+  
+  <listener>
+    <listener-class>com.tangramoss.cnm.internal.init.ContextListener</listener-class>
+
+  </listener>
+  
+<servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.opengoss.web.internal.jetty.DefaultServlet</servlet-class>
+    <init-param>
+      <param-name>acceptRanges</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dirAllowed</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>redirectWelcome</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCacheSize</param-name>
+      <param-value>2000000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCachedFileSize</param-name>
+      <param-value>254000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCachedFiles</param-name>
+      <param-value>1000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>useFileMappedBuffer</param-name>
+      <param-value>true</param-value>
+    </init-param>  
+    <load-on-startup>0</load-on-startup>
+</servlet> 
+<servlet-mapping> 
+  <servlet-name>default</servlet-name> 
+  <url-pattern>/</url-pattern> 
+</servlet-mapping>
+  
+
+  <!-- ==================================================================== -->
+
+  <!-- ==================================================================== -->
+  <!-- Default MIME mappings                                                -->
+  <!-- The default MIME mappings are provided by the mime.properties        -->
+  <!-- resource in the org.mortbay.jetty.jar file.  Additional or modified  -->
+  <!-- mappings may be specified here                                       -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
+  <!-- UNCOMMENT TO ACTIVATE
+  <mime-mapping>
+    <extension>mysuffix</extension>
+    <mime-type>mymime/type</mime-type>
+  </mime-mapping>
+  -->
+
+  <!-- ==================================================================== -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+		<servlet-name>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-name>
+		<servlet-class>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-name>
+		<url-pattern>/JSON-RPC</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-name>
+		<url-pattern>/mgr</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+
+
+

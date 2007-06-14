@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.log.core">
+	<class name="SysLog" table="lm_sys_log" lazy="false" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="level" type="string"></property>
+		<property name="time" type="long"></property>
+		<property name="result" type="string"></property>
+		<property name="description" type="string"></property>
+	</class>
+	
+	<class name="OperationLog" table="lm_operation_log" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="permision_id">
+			<generator class="native" />
+		</id>		                   
+		<property name="userName" type="string"></property>
+		<property name="time" type="long"></property>
+		<property name="userIP" type="string"></property>
+		<property name="action" type="string"></property>
+		<property name="result" type="string"></property>
+		<property name="description" type="string"></property>
+		<property name="userId" type="string"></property>
+	</class>
+	
+	<class name="LoggerItem" table="lm_logger_item" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>		                   
+		<property name="logInstance" type="string"></property>
+		<property name="currentLogSize" type="long"></property>
+		<property name="logRecordNumber" type="long"></property>
+		<property name="maxLogSize" type="long"></property>
+		<property name="lastCountDate" type="long"></property>
+		<property name="maxBufferSize" type="long"></property>
+		<property name="availabilityStatus" type="string"></property>
+	</class>
+
+	<query name="findOperationLogRecord"><![CDATA[
+	from OperationLog log where log.id=?
+	]]></query>
+	
+	<query name="findSystemLogRecord"><![CDATA[
+	from SysLog log where log.id=?
+	]]></query>
+	
+</hibernate-mapping>

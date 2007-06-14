@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+		package="org.opengoss.cnm.security.core">
+	
+	 <class name="Permission" table="sm_permission" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="permision_id">
+			<generator class="native" />
+		</id>		                   
+		<list name="permissionList" table="sm_permission_resource" lazy="false" cascade="save-update">
+		  <key column="permision_id" />
+		  <index column="order_resource"/>
+		  <many-to-many class="Resource" />
+		</list>
+	</class>
+	
+
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        version="2.5">
+    <display-name>Dojo Source Code</display-name>
+    <context-param>
+        <param-name>DefaultEncoding</param-name>
+        <param-value>zh_CN.utf-8</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>FreemarkerServlet</servlet-name>
+        <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+        <init-param>
+            <param-name>TemplatePath</param-name>
+            <param-value>/</param-value>
+        </init-param>
+        <init-param>
+	    	<param-name>localized_lookup</param-name>
+	    	<param-value>false</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <display-name>Login Servlet</display-name>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>org.opengoss.cnm.web.LoginServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+	    <servlet-name>default</servlet-name>
+	    <servlet-class>org.opengoss.web.internal.jetty.DefaultServlet</servlet-class>
+	    <init-param>
+	      <param-name>acceptRanges</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>dirAllowed</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>redirectWelcome</param-name>
+	      <param-value>false</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>maxCacheSize</param-name>
+	      <param-value>2000000</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>maxCachedFileSize</param-name>
+	      <param-value>254000</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>maxCachedFiles</param-name>
+	      <param-value>1000</param-value>
+	    </init-param>
+	    <init-param>
+	      <param-name>useFileMappedBuffer</param-name>
+	      <param-value>true</param-value>
+	    </init-param>  
+	    <load-on-startup>0</load-on-startup>
+	</servlet> 
+
+	<servlet-mapping> 
+	  <servlet-name>default</servlet-name> 
+	  <url-pattern>/</url-pattern> 
+	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FreemarkerServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login.action</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

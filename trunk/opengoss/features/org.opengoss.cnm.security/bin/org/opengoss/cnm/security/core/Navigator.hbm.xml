@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+		package="org.opengoss.cnm.security.core">
+	
+	 <class name="Navigator" table="sm_navigator" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="id">
+			<generator class="native" />
+		</id>		                   
+		<property name="roleName"></property>
+		
+		<list name="modules" table="sm_navigator_module" lazy="false" >
+		  <key column="navigator_id" />
+		  <index column="order_module"/>
+		  <many-to-many class="Module" />
+		</list>
+
+	</class>
+	
+</hibernate-mapping>

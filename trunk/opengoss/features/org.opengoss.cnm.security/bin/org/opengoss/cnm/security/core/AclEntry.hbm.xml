@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.security.core">
+	
+	<class name="AclEntry" table="sm_acl_entry" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<many-to-one name="user" class="User" lazy="false"  cascade="save-update">
+			<column name="user_id" />
+		</many-to-one>
+		<many-to-one name="role" class="Role" lazy="false"  cascade="save-update">
+			<column name="role_id" />
+		</many-to-one>
+		 <many-to-one name="permission" class="Permission" lazy="false"  cascade="save-update">
+			<column name="permission_id" />
+		</many-to-one>
+		
+	</class>
+	
+	<query name="findAclEntryByUserId"><![CDATA[
+	from AclEntry entity where entity.user.id=?
+	]]></query>
+		
+
+	<query name="findAclEntryByUserName"><![CDATA[
+	from AclEntry entity where entity.user.name=?
+	]]></query>
+
+	<query name="findUserGroupByType"><![CDATA[
+	from Role role where role.type=?
+	]]></query>
+		
+
+</hibernate-mapping>

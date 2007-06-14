@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+#body {
+	background: #eeeeee;
+}
+
+#bgroup {
+	background: #eeeeee;
+}
+
+#cancel {
+	margin-right: 85px;
+	width: 60px;
+}
+
+#ok {
+	margin-right: 20px;
+	width: 60px;
+}
+
+fieldset {
+	width: 740px;
+	margin: 5px;
+	border: 2px solid #ccc;
+}
+
+label {
+	width: 100px;
+}
+
+label.firstColumn {
+	margin-left: 10px;
+	width: 120px;
+}
+
+label.secColumn {
+	position: relative;
+	left: 30px;
+	width: 120px;
+}
+
+label.thColumn {
+	margin-left: 60px;
+	width: 120px;
+}
+
+input {
+	width: 160px;
+}
+
+#perAssign {
+	color: #798EC5;
+	font-weight: bold;
+	width: 200px;
+	margin-left: 10px;
+}
+
+input.secText {
+	margin-left: 30px;
+}
+
+select {
+	width: 160px;
+}
+
+fieldset.sel {
+	width: 300px;
+	height: 150px;
+}
+
+legend {
+	color: #6898CC;
+	font-weight: bold;
+}
+
+input.selButton {
+	width: 20px;
+}
+
+#option {
+	padding-bottom: 5px;
+}
+
+#role {
+	width: 200px;
+	height: 150px;
+	margin-left: 40px;
+	margin-bottom: 7px;
+}
+
+#customer {
+	width: 200px;
+	height: 150px;
+	margin-left: 40px;
+	margin-bottom: 7px;
+}
+
+input.selButton {
+	width: 40px;
+}
+
+#add {
+	position: relative;
+	left: 20px;
+	top: -120px;
+}
+
+#remove {
+	position: relative;
+	left: -23px;
+	top: -60px;
+}
+
+#choose {
+	margin-bottom: 5px;
+}
+
+#c,#s {
+	color: #798EC5;
+}
+
+#tips {
+	font-weight: bold;
+}
+
+#filter {
+	margin-left: 10px;
+	width: 400px;
+}

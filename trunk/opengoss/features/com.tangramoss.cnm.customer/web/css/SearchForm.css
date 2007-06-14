@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+/* 没有边框 */
+#searchForm {
+	margin:0;
+	padding:0;
+	border:none;
+}
+/* 查询内容 */
+#searchForm h2{
+	width:auto;
+	float:left;
+	font-size:1.5em;
+	font-weight:bold;
+	margin-left:10em;
+	/*border:1px solid red;*/
+	}
+
+/* 两大列 */
+#searchForm div {
+	width:20em;
+	max-width:50%;
+	float:left;
+	}
+/* 第一列的左边距 */
+#firstColumn{
+	margin-left:15em;
+	}
+
+/* 标签（用户，用户类型。。。）*/
+#searchForm label{
+	width:5em;
+	float:left;
+	display:inline;
+	/*border:1px solid green;*/
+	}
+/* 查询条件的输入框 */
+#searchForm input[type='text']{
+	width:10em;
+	float:left;
+	/*border:1px solid red;*/
+}
+/* 查询按钮 */
+#searchForm input[type='button']{
+	width:3em;
+	float:left;
+	margin-left:37.2em;
+	/*border:1px solid red;*/
+}
+
+.clear{
+	clear:both;
+}

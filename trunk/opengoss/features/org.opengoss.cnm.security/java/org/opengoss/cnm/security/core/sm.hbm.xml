@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.security.core">
+	<class name="User" table="sm_user" lazy="false" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="name" type="string"></property>
+		<property name="password" type="string"></property>
+		<property name="userName" type="string"></property>
+		<property name="mail" type="string"></property>
+		<property name="address" type="string"></property>
+		<property name="mobile" type="string"></property>
+		<property name="phone" type="string"></property>
+		<property name="company" type="string"></property>
+		<property name="department" type="string"></property>
+		<property name="status" type="string"></property>
+		<property name="fileRule" type="string"></property>
+	</class>
+	
+	<class name="AclEntry" table="sm_acl_entry" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<many-to-one name="user" class="User" lazy="false"  cascade="save-update">
+			<column name="user_id" />
+		</many-to-one>
+		<many-to-one name="userGroup" class="UserGroup" lazy="false"  cascade="save-update">
+			<column name="userGroup_id" />
+		</many-to-one>
+		<many-to-one name="permission" class="Permission" lazy="false"  cascade="save-update">
+			<column name="permission_id" />
+		</many-to-one>
+	</class>
+	
+	
+	<class name="Permission" table="sm_permission" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="permision_id">
+			<generator class="native" />
+		</id>		                   
+		<list name="permissionList" table="sm_permission_resource" lazy="false" cascade="save-update">
+		  <key column="permision_id" />
+		  <index column="order_resource"/>
+		  <many-to-many class="Resource" />
+		</list>
+	</class>
+	
+	<class name="Resource" table="sm_resource" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="rescName"></property>
+		<property name="description"></property>
+		<property name="rescId" type="long"></property>
+		
+	</class>
+	
+	
+	
+	<class name="UserGroup" table="sm_user_group" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="type"></property>
+		<!-- <property name="name"></property>  -->
+	</class>
+	
+	<query name="findACLEntryByUser"><![CDATA[
+from AclEntry entity where entity.user.id=?
+	]]></query>
+
+	<query name="findAclEntryByUserId"><![CDATA[
+	from AclEntry entity where entity.user.id=?
+	]]></query>
+	
+	<query name="findAclEntryByUserName"><![CDATA[
+	from AclEntry entity where entity.user.name=?
+	]]></query>
+	
+	<query name="findUserByName"><![CDATA[
+		from User user where user.name=?
+	]]></query>
+	
+	
+ 	<query name="findUserByNameAndStatus"><![CDATA[
+		from User user where user.name=? and user.status=?
+	]]></query>
+
+</hibernate-mapping>
