@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="AlarmEngine" version="1.0">
+
+	<service id="Engine" scope="component" class="org.opengoss.alarm.internal.engine.AlarmEngine">
+		<interface name="org.opengoss.alarm.engine.IAlarmEngine"/>
+		<constructor>
+			<param ref="Esper:EsperService"/>
+			<param ref="AlarmCore:AlarmDao"/>
+		</constructor>
+	</service>
+
+	<service id="RawEventCollector" scope="application" class="org.opengoss.alarm.internal.engine.RawEventCollector">
+		<interface name="org.opengoss.alarm.engine.IEventCollector"/>
+		<constructor>
+			<param ref="Engine"/>
+		</constructor>
+	</service>
+
+	<service id="RawEventSender" scope="application" class="org.opengoss.alarm.internal.engine.RawEventSender">
+		<interface name="org.opengoss.alarm.engine.IEventSender"/>
+		<constructor>
+			<param ref="RawEventCollector"/>
+		</constructor>
+	</service>
+	
+	<service id="AlarmConsolidator" scope="component" class="org.opengoss.alarm.internal.engine.AlarmConsolidator">
+		<constructor>
+			<param ref="Engine"/>
+		</constructor>
+	</service>
+	
+	<service id="AlarmCorrelator" scope="component" class="org.opengoss.alarm.internal.engine.AlarmCorrelator">
+		<constructor>
+			<param ref="Engine"/>
+		</constructor>
+		<property name="alarmDao" ref="AlarmCore:AlarmDao"/>
+	</service>
+
+	<service id="AlarmNotifier" scope="component" class="org.opengoss.alarm.internal.engine.AlarmNotifier">
+		<constructor>
+			<param ref="Engine"/>
+		</constructor>
+	</service>	
+	
+	
+	<service id="Mail" scope="component" class="org.opengoss.alarm.internal.excetue.MailExecutor">
+	    <property name="mailFrom" value="ery.lee@gmail.com"></property>
+	    <property name="host" value="smtp.sina.com.cn"></property>
+	    <property name="userName" value="ery.lee"></property>
+	    <property name="pwd" value="public"></property>
+	</service>
+	
+	<service id="Note" scope="component" class="org.opengoss.alarm.internal.excetue.NoteExcutor">
+	</service>
+	<service id="AutoAck" scope="component" class="org.opengoss.alarm.internal.excetue.AutoAckExecutor">
+	</service>
+</plugin>

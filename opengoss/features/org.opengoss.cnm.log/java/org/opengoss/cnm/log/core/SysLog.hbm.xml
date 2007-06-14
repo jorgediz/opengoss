@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.log.core">
+	<class name="SysLog" table="lm_sys_log" lazy="false" dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="level" type="string"></property>
+		<property name="time" type="date"></property>
+		<property name="result" type="string"></property>
+		<property name="description" type="string"></property>
+	</class>
+	
+	
+</hibernate-mapping>

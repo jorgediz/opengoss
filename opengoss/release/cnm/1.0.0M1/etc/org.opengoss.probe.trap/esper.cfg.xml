@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esper-configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<event-type alias="TrapMessage">
+		<java-util-map>
+			<map-property name="trap_oid" class="string"/>
+			<map-property name="node_addr" class="string"/>
+			<map-property name="time_stamp" class="long"/>
+		</java-util-map>
+	</event-type>
+	<event-type alias="EventMessage" class="org.opengoss.probe.trap.EventMessage">
+	</event-type>
+</esper-configuration>
+

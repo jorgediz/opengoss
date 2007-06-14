@@ -1,0 +1,27 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+#main {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.label {
+	border: 1px solid black;
+	background: #232323;
+	color: #fff;
+	font-weight: bold;
+}
+
+.label :hover {
+	cursor: pointer;
+}
+
+.configLabel {
+	padding:  10px;
+}
+#test  {
+	padding: 10px;
+}

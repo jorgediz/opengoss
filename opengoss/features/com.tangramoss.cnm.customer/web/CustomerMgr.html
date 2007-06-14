@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>客户信息导入 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<script type="text/javascript" src="/dojo/dojo.js"></script>
+<script type="text/javascript" src="jsonrpc.js"></script>  
+
+<script type="text/javascript" src="js/FormBinder.js"></script>
+<script type="text/javascript" src="js/CustomerMgr.js"></script>
+<script type="text/javascript" src="js/CustomerMgrRender.js"></script>
+
+<link href="css/CustomerMgr.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onLoad="init();">
+<div id="commontable" title="Customer Management" dojoType="CommonTable" 
+    searchFormId="searchFade" addFormId="addDialog" modifyFormId="modifyDialog" >
+				<div id="searchFade" >
+					<table>
+						<tr>
+							<td>
+							<label>查询内容:</label>
+							</td>
+							<td>
+							&nbsp;
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							 <label>客户简称:</label> <input type="text" name="cusName"/>
+							</td>
+							<td>
+							<label>客户级别:</label> <input type="text" name="cusLevel"/>
+							</td>
+						
+						</tr>
+						<tr>
+							<td>
+							 <label>邮箱:</label> <input type="text" name="cusMail"/>
+							</td>
+							<td>
+							<label>联系电话:</label> <input type="text" name="cusPhone"/>
+							</td>
+						
+						</tr>
+						
+						<tr>
+							<td>
+							<label >联系手机:</label> <input type="text" name="cusMobile"/>
+							</td>
+							<td>
+							&nbsp;
+							</td>
+						</tr>
+						
+						<tr>
+								<td>
+									&nbsp;
+								</td>
+								<td>
+								<input type="button" onclick="findCustomer();"  value="查询"/>	
+								</td>
+						</tr>
+						
+					</table>
+				
+				
+				</div>
+	
+	<div dojoType="dialog" id="addDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	
+		<div id="tips"> </di>基本信息 <br />
+			大客户信息: 输入大客户详细信息
+		</div>
+		<hr />
+			<fieldset >
+				<legend>必填信息</legend>
+				<div >
+				<label class="firstColumn"> 客户简称: </label> <input type="text" name="name" 
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				<label class="secColumn"> 客户全称: </label><input  class="secText" type="text" name="fullName"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 客户级别: </label>  <input  type="text"  name="level" 
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 入网时间: </label><input class="secText" type="text"  name="time"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				
+				<div>
+					<label class="firstColumn" > 联系手机： </label>  <input  type="text" name="mobile"
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 联系电话：</label><input class="secText" type="text"  name="phone"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 是否发送消息: </label>  <input  type="text" name="informed"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 短信号码： </label><input class="secText" type="text"  name="message"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > E-mail: </label> <input class="secText" type="text"  name="email"
+				dojoType="EmailTextbox"
+							trim="true" 
+							required="true" 
+							invalidMessage="Invalid"
+							missingMessage="*" 
+							/>
+					
+				</div>
+				<p></p>
+			</fieldset>
+			<fieldset id="option">
+				<legend>可选信息</legend>
+					<div  > <label class="firstColumn"> 客户行业: </label> <input type="text" name="customerClass"/> 
+							<label class="thColumn"> 企事法人: </label> <input type="text" name="corperator"/>
+					</div>
+					<div > <label class="firstColumn"> 客户地址: </label> <input type="text" name="address"/> 
+							<label class="thColumn"> 所属区域: </label> <input type="text" name="region"/>
+					</div>
+					<div  > <label class="firstColumn"> 传真: </label> <input type="text" name="fax"/>
+					 <label class="thColumn"> 备注信息: </label> <input type="text" name="description"/>
+					 </div>
+					<div  > <label class="firstColumn">电路编号:</label> <input type="text" name="circuitNo"/>
+					 <label class="thColumn"> 电路信息: </label> <input type="text" name="circuitInfo"/>
+					 </div>
+					  <div  > <label class="firstColumn">联系人:</label> <input type="text" name="linkMan"/>
+					 </div>
+					<p></p>
+				
+				
+			</fieldset>
+			<div id="bgroup" align="right">
+						<input type="button" id="ok" onclick = "createCustomer();" value="确定"/>
+						<input type="button" id="addCancel" value="取消"/>
+			</div>
+	</div>
+	
+	<div dojoType="dialog" id="modifyDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	
+		<div id="tips"> </di>修改信息 <br />
+			大客户信息: 修改大客户详细信息
+		</div>
+		<hr />
+			<fieldset >
+				
+				<legend>必填信息</legend>
+				
+				<div >
+				<label class="firstColumn"> 客户简称: </label><input  type="text" name="name" 
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn"> 客户全称: </label><input  class="secText" type="text" name="fullName"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 客户级别: </label>  <input  type="text" name="level"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 入网时间: </label><input class="secText" type="text"  name="time"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				
+				<div>
+					<label class="firstColumn" > 联系手机： </label>  <input  type="text" name="mobile"
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 联系电话：</label><input class="secText" type="text"   name="phone"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 是否发送消息: </label>  <input  type="text"  name="informed"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 短信号码： </label><input class="secText" type="text"  name="message"
+				dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > E-mail: </label> <input class="secText" type="text" name="email"
+				dojoType="EmailTextbox"
+							trim="true" 
+							required="true" 
+							invalidMessage="Invalid"
+							missingMessage="*" 
+							 />
+					
+				</div>
+				<p></p>
+			</fieldset>
+			<fieldset id="option">
+				<legend>可选信息</legend>
+					<div  > <label class="firstColumn"> 客户行业: </label> <input type="text" name = "customerClass"/> 
+							<label class="thColumn"> 企事法人: </label> <input type="text" name= "corperator"/>
+					</div>
+					<div > <label class="firstColumn"> 客户地址: </label> <input type="text" name= "address" /> 
+							<label class="thColumn"> 所属区域: </label> <input type="text" name="region"/>
+					</div>
+					<div  > <label class="firstColumn"> 传真: </label> <input type="text" name="fax"/>
+					 <label class="thColumn"> 备注信息: </label> <input type="text" name="description" />
+					 </div>
+					<div  > <label class="firstColumn">电路编号:</label> <input type="text" name="circuitNo"/>
+					 <label class="thColumn"> 电路信息: </label> <input type="text" name="circuitInfo"/>
+					 </div>
+					 <div  > <label class="firstColumn">联系人:</label> <input type="text" name="linkMan" />
+					 </div>
+					<p></p>
+				
+				
+			</fieldset>
+			<div id="bgroup" align="right">
+						<input type="button" id="ok" onclick = "modifyCustomer();" value="确定"/>
+						<input type="button" id="modifyCancel" value="取消"/>
+			</div>
+	</div>
+	
+	<table  id="table" dojoType="FilteringTable"  width="100%" border="1" >
+			<thead>
+					<tr >
+						<th  field="id" width="6"  >选择</th>
+						<th  field="name" width="9%" dataType="String" >客户简称</th>
+						<th  field="fullName" width="11%" dataType="String"  >客户全称</th>
+						<th  field="time" width="10%" dataType="String">入网时间</th>
+						<th  field="level" width="10%" dataType="String" >客户级别</th>
+						<th  field="email" width="8%" dataType="String">邮箱</th>
+						<th  field="mobile" width="10%" dataType="String">联系手机</th>
+						<th  field="phone" width="10%" dataType="String">联系电话</th>
+						<th  field="informed" width="6%" dataType="String">是否发送通知</th>
+						<th  field="message" width="10%" dataType="String">短信号码</th>
+					</tr>
+			</thead>
+				<tbody  id="tableBody">
+				
+				</tbody>
+	</table>
+</div>
+</body>
+</html>

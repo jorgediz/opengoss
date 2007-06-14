@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping 
+		package="org.opengoss.cnm.security.core">
+	
+	 <class name="Page" table="sm_page" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="page_id">
+			<generator class="native" />
+		</id>		                   
+		<property name="name"></property>
+		<property name="description"></property>
+		<property name="url" ></property>
+	</class>
+	
+</hibernate-mapping>

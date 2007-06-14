@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.security.core">
+	
+	<class name="Resource" table="sm_resource" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="rescName"></property>
+		<property name="description"></property>
+		<property name="rescId" type="long"></property>
+	</class>
+	
+	<query name="findResourceByRescId"><![CDATA[
+	from Resource resc where resc.rescId=?
+	]]></query>
+
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.ContentPane");
+	</script>
+	<style>
+	#main{
+		width:180px;
+		height:95%
+	}
+	</style>
+</head>
+
+<body>
+	
+		<div dojoType="ContentPane" label="网络告警">
+			<div>
+			<button dojoType="Button" onclick="top.frames['content'].location.href='OperatorAlarm.html'" >网络告警</button>
+			</div>
+		</div>
+		<div dojoType="ContentPane" label="历史告警统计">
+			<div>
+			<li>作为另一个web服务，提供链接
+			</div>
+		</div>
+		<div dojoType="ContentPane" label="规则维护">
+		<div>
+			<li>规则页面
+			<button dojoType="Button" onclick="top.frames['content'].location.href='OperatorForwardRuleManage.html'" >前转规则</button>
+			<button dojoType="Button" onclick="top.frames['content'].location.href='OperatorAutoAcknowledgePage.html'" >自动确认规则</button>
+		</div>
+		</div>
+
+</body>
+</html>

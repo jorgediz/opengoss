@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== 
+     2006-12-23 下午05:52:43                                                        
+
+     LinkTalk
+     LinkTalk WebIM    
+     
+     Ery Lee(ery.lee@gmail.com)                                                              
+     ====================================================================== -->
+<project name="LinkTalk" default="release">
+	<property name="opengoss.root" value="/opt/opengoss"/>
+	<property name="release.folder" value="/opt/webim/linktalk/release/1.0.0M3" />
+	<property name="relase.version" value="1.0.0M3"/>
+	<property name="release.time" value="v20070118" />
+	<property name="linktalk.root" value="${opengoss.root}/linktalk"/>
+	<!-- ================================= 
+          target: release              
+         ================================= -->
+	<target name="release" depends="clean">
+		<ant dir="${linktalk.root}/com.erytech.linktalk.dao" antfile="build.xml" target="jar"/>
+		<ant dir="${linktalk.root}/com.erytech.linktalk.service" antfile="build.xml" target="jar"/>
+		<ant dir="${linktalk.root}/com.erytech.linktalk.web" antfile="build.xml" target="jar"/>
+	</target>
+	<target name="clean">
+		<delete> 
+			<fileset dir="${release.folder}/plugins" includes="com.erytech.linktalk.*"></fileset> 
+		</delete>
+	</target>
+</project>

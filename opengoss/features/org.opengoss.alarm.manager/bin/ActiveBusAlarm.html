@@ -1,0 +1,170 @@
+	<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Active Bussiness Alarm</title>
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript" src="js/jsonrpc.js"></script>	
+	<script type="text/javascript" src="js/activeBusAlarmController.js"></script>	
+	<script type="text/javascript" src="js/activeBusAlarmResultRender.js"></script>	
+	<script type="text/javascript">
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.CommonTable");	
+		//dojo.require("dojo.lfx.*");
+		dojo.hostenv.writeIncludes();
+	</script>
+	<link rel="STYLESHEET" type="text/css" href="css/activeBusAlarm.css"/>
+</head>
+<body>
+<div id="alarmCommonTable" title="活动业务告警列表" dojoType="CommonTable" searchFormId="searchBox" >	
+	<div id="searchBox">
+		<name class="text" >告警名称：</name>&nbsp;
+		<input type="text" value="" id="searchBox_cusName">
+		<level class="text" >告警类型：</level>&nbsp;
+		<input type="text" value="" id="searchBox_cusType">
+		<button dojoType="Button" id="searchBox_search">查询</button> 	
+	</div>
+	
+	<!-- <div class="WizardContainer"> -->
+		<div class="wizard">
+			<input type="button" class="WizardButton" value="<<"/>
+			<input type="button" class="WizardButton" value="<"/>
+			<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+			<input type="button" class="WizardButton" value=">" />
+			<input type="button" class="WizardButton" value=">>"/>
+		</div>
+		<table width="700" border="0" cellpadding="0" cellspacing="0" dojoType="filteringTable" multiple="true"
+			alternateRows="true" maxSortable="2" id="table">
+			<thead>
+				<tr>
+					<th dataType="markup" align="left" field="id">选择</th>
+					<th field="alarmName" dataType="String" align="left">告警名称</th>
+					<th field="alarmType" dataType="String" align="left">告警类型</th>
+					<th field="perceivedSeverity" dataType="String" align="left">告警级别</th>
+					<th field="vendorAlarmId" dataType="String" align="left">厂商标示</th>
+					<th field="alarmSource" dataType="String" align="left">告警来源</th>
+					<th field="memo" dataType="String" align="left">备注</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+				
+			</tbody>
+		</table>
+		<div class="wizard">
+			<input type="button" class="WizardButton" value="<<"/>
+			<input type="button" class="WizardButton" value="<"/>
+			<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+			<input type="button" class="WizardButton" value=">" />
+			<input type="button" class="WizardButton" value=">>"/>
+		</div>
+	<!-- </div> -->
+</div>
+</body>
+</html>
+
+
+
+<div dojoType="dialog" id="modifyBusAlarmDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<INPUT TYPE="hidden" id="hiden_DescInfoDialog" value=""/>
+	<table>
+		<tr>
+			<td>告警类别标识:</td>
+			<td id="modify_alarmId"></td>
+		</tr>
+		<tr>
+			<td>人工备注信息:</td>
+			<td><input type="text" id="modify_memo"/></td>
+		</tr>		
+		<tr>
+			<td >
+			<input type="button" id="modifyBusAlarm_OK" onclick="collectAndSendInfo()" value="确定"/></td>
+			<td >
+			<input type="button" id="modifyBusAlarm_cancel" value="退出"/></td></td>
+		</tr>
+	</table>
+</div>
+
+
+<div dojoType="dialog" id="detailBusAlarmDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<table>
+		<tr>
+			<td>告警显示名称:</td>
+			<td><input type="text" id="alarmName"/></td>
+		</tr>
+		<tr>
+			<td>告警类别标识:</td>
+			<td><input type="text" id="alarmId"/></td>
+		</tr>
+		<tr>
+			<td>原始告警标识、厂商的告警标识:</td>
+			<td><input type="text" id="vendorAlarmId"/></td>
+		</tr>
+		<tr>
+			<td>原始告警名称、厂商的告警名称:</td>
+			<td><input type="text" id="vendorAlarmName"/></td>
+		</tr>
+		<tr>
+			<td>告警类型:</td>
+			<td><input type="text" id="alarmType"/></td>
+		</tr>
+		<tr>
+			<td>可能原因:</td>
+			<td><input type="text" id="probleCause"/></td>
+		</tr>
+		<tr>
+			<td>详细原因:</td>
+			<td ><input type="text" id="specialProblem"/></td>
+		</tr>
+		<tr>
+			<td>告警级别:</td>
+			<td ><input type="text" id="perceivedSeverity"/></td>
+		</tr>
+		<tr>
+			<td>告警产生时间:</td>
+			<td><input type="text" id="raisedTime"/></td>
+		</tr>
+		<tr>
+			<td>告警确认者标识:</td>
+			<td><input type="text" id="ackUserId"/></td>
+		</tr>
+		<tr>
+			<td>告警确认时间:</td>
+			<td><input type="text"  id="ackTime"/></td>
+		</tr><tr>
+			<td>告警源:</td>
+			<td><input type="text" id="alarmSource"/></td>
+		</tr>
+		<tr>
+			<td>告警附加信息:</td>
+			<td><input type="text" id="additionalInfo"/></td>
+		</tr>
+		<tr>
+			<td>告警影响的客户信息:</td>
+			<td><input type="text" id="customerInfo"/></td>
+		</tr>
+		<tr>
+			<td>客户关心的硬件资源信息:</td>
+			<td><input type="text" id="rescInfo"/></td>
+		</tr>
+		<tr>
+			<td>SLA信息:</td>
+			<td><input type="text" id="slaInfo"/></td>
+		</tr>
+		<tr>
+			<td>人工备注信息:</td>
+			<td><input type="text" id="memo"/></td>
+		</tr>
+		<tr>
+			<td>告警业务定位信息:</td>
+			<td><input type="text" id="location"/></td>
+		</tr>
+		<tr>
+			<td>告警记录时间:</td>
+			<td><input type="text" id="recordedTime"/></td>
+		</tr>		
+		<tr>
+			<td colspan="2" align="center">
+			<input type="button" id="detailBusAlarm_OK" onclick="" value="确定"/></td>
+		</tr>
+	</table>
+</div>

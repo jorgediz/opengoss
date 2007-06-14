@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>autoAcknowledgePage</title>
+	<link rel="STYLESHEET" type="text/css" href="css/temporaryCss.css"/> 
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript" src="js/jsonrpc.js"></script>
+	<script type="text/javascript" src="js/AlarmForwardRuleController.js"></script>
+	<script type="text/javascript" src="js/AlarmForwardRuleResultRender.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.LayoutContainer");
+		dojo.require("dojo.widget.ContentPane");
+		dojo.require("dojo.widget.FilteringTable");
+		dojo.require("dojo.widget.CommonTable");
+	</script>
+</head>
+<body>
+<div id="forwardCommonTable" dojoType="CommonTable" addFormId="newDialog" modifyFormId="updateDialog">
+	<div dojoType="dialog" id="newDialog" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+		<form>
+			<table id="dialogTable">
+				<tr>
+					<td>过滤条件选择:</td>
+				</tr>
+				<tr>
+					<td>规则名称:</td>
+					<td><input type="text" value="清选择规则名称" id="addName"/></td>
+				</tr>
+				<tr>
+					<td>选择模版:</td>
+					<td>
+						<select>
+							<option>模版</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>大客户选择:</td>
+					<td>
+						<select id="addCustomer">
+							<option value="1">Customer 1</option>
+							<option value="2">customer 2</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>告警级别选择:</td>
+					<td>
+						<select id="addSeverity">
+							<option value="5">Critical</option>
+							<option value="4">Major</option>
+							<option value="3">Minor</option>
+							<option value="2">Warning</option>
+							<option value="1">Indeterminate</option>
+							<option value="0">Cleared</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>过滤条件选择:</td>
+				</tr>
+				<tr>
+					<td>前转类型：</td>
+					<td>
+						<select id="addType">
+							<option value="Email前转规则">Email</option>
+							<option value="短信前转规则">短信</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Email(短信号码)</td>
+					<td>
+						<input type="text" id="addParameter" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="addCancel" value="取消" />
+					</td>
+					<td>
+						<input type="button" id="addOk" onclick="addForwardRule();" value="确定" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div dojoType="dialog" id="updateDialog" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+		<form>
+			<table id="dialogTable">
+				<tr>
+					<td>过滤条件选择:</td>
+				</tr>
+				<tr>
+					<td>规则名称:</td>
+					<td><label id="updateName"></label></td>
+				</tr>
+				<tr>
+					<td>选择模版:</td>
+					<td>
+						<select>
+							<option>模版</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>大客户选择:</td>
+					<td>
+						<select id="updateCustomer">
+							<option value="1">Customer 1</option>
+							<option value="2">customer 2</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>告警级别选择:</td>
+					<td>
+						<select id="updateSeverity">
+							<option value="5">Critical</option>
+							<option value="4">Major</option>
+							<option value="3">Minor</option>
+							<option value="2">Warning</option>
+							<option value="1">Indeterminate</option>
+							<option value="0">Cleared</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>过滤条件选择:</td>
+				</tr>
+				<tr>
+					<td>前转类型：</td>
+					<td>
+						<select id="updateType">
+							<option value="Email前转规则">Email</option>
+							<option value="短信前转规则">短信</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Email(短信号码)</td>
+					<td>
+						<input type="text" id="updateParameter" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" id="updateCancel" value="取消" />
+					</td>
+					<td>
+						<input type="button" id="updateOk" onclick="updateForwardRule();" value="确定" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<table dojoType="filteringTable" id="forwardTable" width="100%" border="1">
+		<thead>
+			<tr>
+				<th field="id" dataType="markup"></th>
+				<th field="condition">过滤条件</th>
+				<th field="type">前转类型</th>
+				<th field="parameter">前转参数</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">	
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

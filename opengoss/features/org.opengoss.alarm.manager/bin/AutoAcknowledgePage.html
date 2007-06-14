@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>autoAcknowledgePage</title>
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript" src="js/jsonrpc.js"></script>
+	<script type="text/javascript" src="js/autoAcknowledgeController.js"></script>
+	<script type="text/javascript" src="js/autoAcknowledgeResultRender.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.event.*");
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.LayoutContainer");
+		dojo.require("dojo.widget.ContentPane");
+		dojo.require("dojo.widget.CommonTable");
+		dojo.require("dojo.widget.FilteringTable");
+		dojo.require("dojo.lfx.*");
+		dojo.hostenv.writeIncludes();
+	</script>
+	<!-- 复用 -->
+	<link rel="STYLESHEET" type="text/css" href="css/cusInfoManage.css"/> 
+</head>
+<body>
+<div id="alarmCommonTable" title="自动确认规则维护" dojoType="CommonTable"  modifyFormId="autoAcknowledgeDialog">
+
+	<div dojoType="dialog" id="autoAcknowledgeDialog" bgColor="white"
+	bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<INPUT TYPE="hidden" id="hiden_DescInfoDialog" value=""/>
+	<table>
+		<tr>
+			<td colspan="2" align="left">规则名称:<input type="text" value="请输入规则的名称" id="ruleName"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="left">选择名称:
+				<select>
+	              <option>模版一
+	         	</select>
+			</td>
+		</tr>	
+		<tr>
+			<td colspan="2" align="left">
+				大客户选择:
+				<select id="customerS">
+	              <option>Customer 1
+	              <option>customer 2
+	         	</select>
+			</td>
+		</tr>
+	
+		<tr>
+			<td colspan="2" align="left">
+				告警级别选择:
+				<select id="alarmLevelS">
+	              <option>Critical
+	              <option>Major
+	              <option>Minor
+	              <option>Warning
+	              <option>Indeterminate
+	              <option>Cleared
+	         	</select>
+			</td>
+		</tr>
+		<tr>
+			<td id="autoAcknowledgeDialog_td1">
+				<input type="button" id="autoAcknowledgeDialog_cancel" value="取消" /></td>
+			<td id="autoAcknowledgeDialog_td2">
+				<input type="button" id="autoAcknowledgeDialog_ok" onclick="okProcess()" value="确定" /></td>
+		</tr>
+	</table>
+	</div>
+		
+	
+	<div class="wizard">
+		<input type="button" class="WizardButton" value="<<"/>
+		<input type="button" class="WizardButton" value="<"/>
+		<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+		<input type="button" class="WizardButton" value=">" />
+		<input type="button" class="WizardButton" value=">>"/>
+	</div>
+	<table width="700" border="0" cellpadding="0" cellspacing="0" dojoType="filteringTable" multiple="true"
+		alternateRows="true" maxSortable="2" id="table">
+		<thead>
+			<tr>
+				<th dataType="markup" align="left" field="id">选择</th>
+				<th field="name" dataType="String" align="left" id="name">规则名称</th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+			
+		</tbody>
+	</table>
+	<div class="wizard">
+		<input type="button" class="WizardButton" value="<<"/>
+		<input type="button" class="WizardButton" value="<"/>
+		<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+		<input type="button" class="WizardButton" value=">" />
+		<input type="button" class="WizardButton" value=">>"/>
+	</div>
+</div>
+</body>
+</html>
+

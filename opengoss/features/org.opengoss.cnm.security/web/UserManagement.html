@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户管理-用户列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+
+<script type="text/javascript" src="/dojo/dojo.js"></script>
+<script type="text/javascript" src="jsonrpc.js"></script>  
+<script type="text/javascript" src="js/UserManagement.js"></script> 
+<script type="text/javascript" src="js/UserMgrRender.js"></script>  
+<script type="text/javascript" src="js/FormBinder.js"></script>  
+
+<link href="css/UserManagement.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div id="commontable" title="User Management" dojoType="CommonTable" width="500" height="250"
+    searchFormId="searchFade" addFormId="addDialog" modifyFormId="modifyDialog" >
+	<div id="searchFade" >
+			<fieldset id="searchForm">
+				 <strong>查询内容:</strong>
+					<br class="clear" />
+				 <div id="firstColumn">
+			
+				 	<p><label>登录名:</label> <input type="text" name="name"/>
+				 	
+				 	</p>
+				 	<p><label>邮箱:</label> <input type="text" name="mail"/>
+				 	</p>
+				 	<p><label>手机号码:</label> <input type="text" name="phone"/>
+				 	</p>
+				 	<p><label>公司:</label> <input type="text" name="company"/>
+				 	</p>
+				 	
+				 </div>
+				 <div>
+				 	<p><label>用户名:</label> <input type="text" name="userName"/>
+				 	</p>
+				 	<p><label>地址:</label> <input type="text" name="address"/>
+				 	</p>
+				 	<p><label>固定电话:</label> <input type="text" name="tel"/>
+				 	</p>
+				 	<p><label>部门:</label> <input type="text" name="department"/>
+				 	</p>
+				 	
+				 </div>
+					 <br class="clear" />
+				 <div>
+				 	<input type="button" 
+				 	name="search" onclick="findUser();"  value="查询" />
+				 </div>
+					 <br class="clear" />
+				
+			 </fieldset>	 
+	</div>
+    <div dojoType="dialog" id="modifyDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	
+		<div id="tips"> </di>基本信息 <br />
+			修改用户信息,不能修改用户的角色
+		</div>
+		<hr />
+			<fieldset >
+				<legend>核心信息</legend>
+				
+				<div >
+				<label class="firstColumn"> 修改密码: </label><input  type="text" name="password"
+				 	dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 确定密码: </label><input class="secText" type="text"  
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				
+				<p></p>
+			</fieldset>
+			<fieldset id="option">
+				<legend>详细信息</legend>
+					<div  > <label class="firstColumn">用户名; </label> <input type="text" name="userName"/> 
+							<label class="thColumn"> 地址:</label> <input type="text" name="address"/>
+					</div>
+					<div > <label class="firstColumn">手机号码: </label> <input type="text" name="mobile"/> 
+							<label class="thColumn">固定电话:</label> <input type="text" name="phone"/>
+					</div>
+					<div  > <label class="firstColumn">公司: </label> <input type="text" name="company" />
+					 <label class="thColumn">部门:</label> <input type="text" name="department"/>
+					 </div>
+					
+					<p></p>
+				<div id="rescModify">
+				<label id="perAssign">资源分配</label>
+					<div id="choose">
+						
+				<table>
+					<tr>
+						<td width="45%">
+						<fieldset class="sel">
+							<legend id="c" >资源列表</legend>
+							<select id="role" name="allResc" size="10" multiple="multiple">
+						
+							</select>
+						</fieldset>
+						</td>
+						<td width="10%">
+								<table align="center">
+									<tr>
+										<td ><input id="add" type="button"  onclick="addSelected('modifyDialog')" value=">>" /></td>
+									</tr>
+									<tr>
+										<td><input id="remove" type="button" onclick="removeSelected('modifyDialog')" value="&lt;&lt;" /> </td>
+									</tr>
+								</table>
+						</td>
+						<td  width="45%">
+						<fieldset class="sel">
+							<legend id="s">选中资源列表</legend>
+							<select id="customer" name="selResc" size="10" multiple="multiple">
+							</select>
+						</fieldset>
+						</td>
+						</tr>
+				</table>
+					</div>
+				</div>	
+				
+			</fieldset>
+			
+			
+			<div id="bgroup" align="right">
+			
+						<input type="button" onclick="modifyUser();" id="ok" value="确定"/>
+						
+						<input type="button" id="modifyCancel" value="取消"/>
+						
+			</div>
+	</div>
+	<div dojoType="dialog" id="addDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	
+		<div id="tips"> </di>基本信息 <br />
+			用户信息: 输入用户信息和为用户分配角色和资源
+		</div>
+		<hr />
+			<fieldset >
+				
+				<legend>必填信息</legend>
+				
+				<div >
+				<label class="firstColumn"> 登录名: </label><input  type="text"  name="name"
+				 	dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn"> 邮箱: </label><input  class="secText" type="text"  name="mail"
+					dojoType="EmailTextbox"
+							trim="true" 
+							required="true" 
+							invalidMessage="Invalid"
+							missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 密码: </label>  <input  type="text"  name = "password"
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 确认密码: </label><input class="secText" type="text"  
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" >选择角色: </label> 
+					<select  id="selectrole" name = "roleInfo" onchange="roleChange(this);">
+									<option value="manager">大客户经理
+									<option value="operator">运维人员
+					</select>
+				</div>
+				<p></p>
+			</fieldset>
+			<fieldset id="option">
+				<legend>可选信息</legend>
+					<div  > <label class="firstColumn">用户名: </label> <input type="text"  name="userName" /> 
+							<label class="thColumn"> 地址</label> <input type="text"  name="address"/>
+					</div>
+					<div > <label class="firstColumn">手机号码: </label> <input type="text"  name="mobile"/> 
+							<label class="thColumn">固定电话:</label> <input type="text"  name="phone"/>
+					</div>
+					<div  > <label class="firstColumn">公司: </label> <input type="text"  name="company"/>
+					 <label class="thColumn">部门:</label> <input type="text"  name="department"/>
+					 </div>
+					
+					<p></p>
+				<div id= "resc">
+				<label id="perAssign">资源分配:</label>
+					<div id="choose">
+						<table>
+					<tr>
+						<td width="45%">
+						<fieldset class="sel">
+							<legend id="c" >资源列表</legend>
+							<select id="role" name="allResc" size="10" multiple="multiple" >
+							
+							</select>
+						</fieldset>
+						</td>
+						<td width="10%">
+								<table align="center">
+									<tr>
+										<td ><input id="add" type="button"  onclick="addSelected('addDialog')" value=">>" /></td>
+									</tr>
+									<tr> 
+										<td><input id="remove" type="button"  onclick="removeSelected('addDialog')" value="&lt;&lt;" /> </td>
+									</tr>
+								</table>
+						</td>
+						<td  width="45%">
+						<fieldset class="sel">
+							<legend id="s">选中资源列表</legend>
+							<select id="customer" size="10" multiple="multiple" name="selResc">
+							
+							</select>
+						</fieldset>
+						</td>
+						</tr>
+				</table>
+					</div>
+				</div>
+			</fieldset>
+			
+	
+	<div id="bgroup" align="right">
+	
+				<input type="button" id="ok"  onclick="createUser()" value="确定"/>
+				
+				<input type="button" id="addCancel"  value="取消"/>
+				
+	</div>
+	
+	</div>
+	<table  id="table" dojoType="FilteringTable" width="100%" border="1" cellspacing="1" cellpadding="1"
+	tbodyClass="scrollContent" >
+				<thead>
+					<tr >
+						<th field="id" width="5%" >选择</th>
+						<th field="name" width="10%" dataType="String"  >登录名 </th>
+						<th field="userName" width="10%" dataType="String">用户名</th>
+						<th field="mail" width="10%" dataType="String" >邮箱</th>
+						<th field="address" width="15%" dataType="String">地址</th>
+						<th field="mobile" width="10%" dataType="String">手机号码</th>
+						<th field="phone" width="10%" dataType="String">固定电话</th>
+						<th field="company" width="10%" dataType="String">公司</th>
+						<th field="department" width="10%" dataType="String">部门 </th>
+					</tr>
+				</thead>
+				
+				<tbody  id="tableBody">
+					
+				</tbody>
+				
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Example Of Table</title>
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<script type="text/javascript" src="js/jsonrpc.js"></script>
+
+	<script type="text/javascript" src="js/CustomerAlarmResultRender.js"></script>
+	<script type="text/javascript" src="js/CustomerAlarmController.js"></script>
+	<script type="text/javascript">
+		dojo.require("dojo.widget.Menu2");
+		dojo.require("dojo.event.*");
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.CommonTable");
+		dojo.require("dojo.widget.FilteringTable");
+		dojo.require("dojo.widget.Checkbox");
+		dojo.require("dojo.lfx.*");
+		dojo.hostenv.writeIncludes();
+	</script>
+	<script>
+		function init()
+		{
+			LoadViewWidget();
+			
+			/**
+			 * 大客户经理初始界面的展现
+			 */
+			customerAlarmsPreview();		
+			
+			 
+			/**
+			 * 选择展现全部大客户列表
+			 */
+			 var radioE=document.getElementById("exhibit");
+			 dojo.event.connect(radioE, "onClick","exhibitCustomerList");
+			 
+			 var searchBinsAlarmButton=dojo.widget.byId("searchBox_search");
+			 dojo.event.connect(searchBinsAlarmButton, "onClick", "showSearchBinsAlarmResult");
+			 
+		}
+		
+		dojo.addOnLoad(init);
+	</script>
+	<link rel="STYLESHEET" type="text/css" href="css/tableExample.css"/> 
+	
+</head>
+
+<body>
+
+<div id="alarmCommonTable" title="大客户告警" dojoType="CommonTable" searchFormId="searchBox" >
+<h5><img SRC="img/radio_chk0.gif" onclick="exhibitCustomerList()" id="exhibit">展现全部大客户列表</h5>
+
+
+	<div id="searchBox">
+		<name class="text" >用户姓名：</name>&nbsp;
+		<input type="text" value="" id="searchBox_cusName">
+		<level class="text" >用户级别：</level>&nbsp;
+		<input type="text" value="" id="searchBox_cusLevel">
+		<button dojoType="Button" id="searchBox_search">查询</button> 	
+	</div>
+	
+	<div class="wizard">
+		<input type="button" class="WizardButton" value="<<"/>
+		<input type="button" class="WizardButton" value="<"/>
+		<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+		<input type="button" class="WizardButton" value=">" />
+		<input type="button" class="WizardButton" value=">>"/>
+	</div>
+	
+	<table width="700" border="0" cellpadding="0" cellspacing="0" dojoType="filteringTable" multiple="true"
+		alternateRows="true" maxSortable="2" id="table">
+		<thead>
+			<tr>
+				<th dataType="markup" align="left" field="choose">选择</th>
+				<th field="name" dataType="String" align="left" id="name">姓名 </th>
+				<th field="level" dataType="String" align="left" id="level">级别</th>
+				<th field="critical" dataType="Number" align="left" id="critical">紧急告警汇总 </th>
+				<th field="majory" dataType="Number" align="left" id="majory">严重告警汇总 </th>
+				<th field="minial" dataType="Number" align="left" id="minial">次要告警汇总 </th>
+				<th field="warning" dataType="Number" align="left" id="warning">警告汇总 </th>
+			</tr>
+		</thead>
+		<tbody id="tableBody">
+			
+		</tbody>
+	</table>
+	<div class="wizard">
+		<input type="button" class="WizardButton" value="<<"/>
+		<input type="button" class="WizardButton" value="<"/>
+		<text class="text">当前是第<currentPage class="current">1</currentPage>页,共52页</text>
+		<input type="button" class="WizardButton" value=">" />
+		<input type="button" class="WizardButton" value=">>"/>
+	</div>
+
+</div>
+</body>
+</html>
+<!-- 用于显示某个用户的详细信息，弹出的对话框 -->
+<div dojoType="dialog" id="cusInfoDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<table>
+		<tr>
+			<td>客户全称:</td>
+			<td id="fullName"></td>
+		</tr>
+		<tr>
+			<td>客户名称</td>
+			<td id="name"></td>
+		</tr>
+		<tr>
+			<td>客户行业</td>
+			<td id="class"></td>
+		</tr>
+		<tr>
+			<td>业务类型</td>
+			<td id="operationType"></td>
+		</tr>
+		<tr>
+			<td>入网时间</td>
+			<td id="time"></td>
+		</tr>
+		<tr>
+			<td>客户级别</td>
+			<td id="level"></td>
+		</tr>
+		<tr>
+			<td>联系人</td>
+			<td id="linkman"></td>
+		</tr>
+		<tr>
+			<td>联系电话</td>
+			<td id="phone"></td>
+		</tr>
+		<tr>
+			<td>联系手机</td>
+			<td id="mobile"></td>
+		</tr>
+		<tr>
+			<td>企事法人</td>
+			<td id="corperator"></td>
+		</tr>
+		<tr>
+			<td>客户地址</td>
+			<td id="address"></td>
+		</tr>
+		<tr>
+			<td>是否发送通知</td>
+			<td id="informed"></td>
+		</tr>
+		<tr>
+			<td>短信号码</td>
+			<td id="message"></td>
+		</tr>
+		<tr>
+			<td>EMAIL地址</td>
+			<td id="email"></td>
+		</tr>
+		<tr>
+			<td>所属区域（所属局点）</td>
+			<td id="region"></td>
+		</tr>
+		<tr>
+			<td>电路编号</td>
+			<td id="circuitNo"></td>
+		</tr>
+		<tr>
+			<td>电路信息</td>
+			<td id="circuitInfo"></td>
+		</tr>
+		<tr>
+			<td>传真</td>
+			<td id="fax"></td>
+		</tr>
+		<tr>
+			<td>备注信息</td>
+			<td id="desc"></td>
+		</tr>		
+		<tr>
+			<td colspan="2" align="center">
+				<input type="button" id="hider0" value="OK"/></td>
+		</tr>
+	</table>
+	
+</div>
+
+<div dojoType="dialog" id="descInfoDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<INPUT TYPE="hidden" id="hiden_DescInfoDialog" value=""/>
+	<table>
+		<tr>
+			<td>客户名称:</td>
+			<td id="modifyDesc_cusName"></td>
+		</tr>
+		<tr>
+			<td>备注信息：</td>
+			<td>
+				<input type="text" id="descText"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="button" value="OK" id="descButton" onclick="descInfoOkButton()"/></td>
+		</tr>
+	</table>	
+	
+</div>
+
+<div dojoType="dialog" id="binsAlarmInfoDialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="250">
+	<table>
+		<tr>
+			<td>告警显示名称:</td>
+			<td id="alarmName"></td>
+		</tr>
+		<tr>
+			<td>告警类别标识:</td>
+			<td id="alarmId"></td>
+		</tr>
+		<tr>
+			<td>原始告警标识、厂商的告警标识:</td>
+			<td id="vendorAlarmId"></td>
+		</tr>
+		<tr>
+			<td>原始告警名称、厂商的告警名称:</td>
+			<td id="vendorAlarmName"></td>
+		</tr>
+		<tr>
+			<td>告警类型:</td>
+			<td id="alarmType"></td>
+		</tr>
+		<tr>
+			<td>可能原因:</td>
+			<td id="probleCause"></td>
+		</tr>
+		<tr>
+			<td>详细原因:</td>
+			<td id="specialProblem"></td>
+		</tr>
+		<tr>
+			<td>告警级别:</td>
+			<td id="perceivedSeverity"></td>
+		</tr>
+		<tr>
+			<td>告警产生时间:</td>
+			<td id="raisedTime"></td>
+		</tr>
+		<tr>
+			<td>告警确认者标识:</td>
+			<td id="ackUserId"></td>
+		</tr>
+		<tr>
+			<td>告警确认时间:</td>
+			<td id="ackTime"></td>
+		</tr><tr>
+			<td>告警源:</td>
+			<td id="alarmSource"></td>
+		</tr>
+		<tr>
+			<td>告警附加信息:</td>
+			<td id="additionalInfo"></td>
+		</tr>
+		<tr>
+			<td>告警影响的客户信息:</td>
+			<td id="customerInfo"></td>
+		</tr>
+		<tr>
+			<td>客户关心的硬件资源信息:</td>
+			<td id="rescInfo"></td>
+		</tr>
+		<tr>
+			<td>SLA信息:</td>
+			<td id="slaInfo"></td>
+		</tr>
+		<tr>
+			<td>人工备注信息:</td>
+			<td id="memo"></td>
+		</tr>
+		<tr>
+			<td>告警业务定位信息:</td>
+			<td id="location"></td>
+		</tr>
+		<tr>
+			<td>告警记录时间:</td>
+			<td id="recordedTime"></td>
+		</tr>		
+		<tr>
+			<td >
+			<input type="button" id="BinsAlarmButton_cancel" value="退出"/></td>
+			<td >
+			<a href="javascript:showBANextPage()" id="BinsAlarmButton_next">下一页</a></td>
+		</tr>
+	</table>
+</div>

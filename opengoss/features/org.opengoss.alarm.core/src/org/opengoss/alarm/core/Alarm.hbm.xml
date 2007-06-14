@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="org.opengoss.alarm.core">
+    <class name="Alarm" table="alarm" polymorphism="explicit" discriminator-value="Alarm"  lazy="false">
+        <id name="id" type="long">
+            <column name="alarm_id" />
+            <generator class="native" />
+        </id>
+		<discriminator column="CLASS_NAME" type="java.lang.String" />
+   <property name="name"/>
+		<property name="alarmKey">
+			<column name="alarm_key"/>
+		</property>
+		<property name="vendorAlarmId">
+			<column name="vendor_alarm_id"/>
+		</property>
+		<property name="vendorAlarmName">
+			<column name="vendor_alarm_name"/>
+		</property>
+		<property name="alarmType">
+			<column name="alarm_type"/>
+		</property> 
+		<property name="probableCause">
+			<column name="probable_cause"/>
+		</property>
+		<property name="specialProblem">
+			<column name="special_problem"/>
+		</property>
+		<property name="perceivedSeverity" type="java.lang.Integer">
+			<column name="perceived_severity"/>
+		</property>
+		<property name="alarmRaisedTime">
+			<column name="alarm_raised_time"/>
+		</property>
+		<property name="alarmClearedTime">
+			<column name="alarm_cleared_time"/>
+		</property>
+		<property name="ackTime">
+			<column name="ack_time"/>
+		</property>
+		<property name="ackUserId">
+			<column name="ack_user_id"/>
+		</property>
+		<property name="location">
+		</property>
+		<property name="alarmSource">
+			<column name="alarm_source"/>
+		</property>
+		<property name="additionalInfo">
+			<column name="additional_info"/>
+		</property>
+		<property name="firstOccurence">
+			<column name="first_occurence"/>
+		</property>
+		<property name="lastOccurence">
+			<column name="last_occurence"/>
+		</property>
+		<property name="repeatNumbers">
+			<column name="repeat_numbers"/>
+		</property>
+		<property name="recordedTime">
+			<column name="recorded_time"/>
+		</property>
+		<property name="memo"/>
+    
+	
+	 <subclass name="BizAlarm" dynamic-update="false" dynamic-insert="false" discriminator-value="BizAlarm" lazy="false">
+		 <property name="customerId" type="java.lang.Long"/>
+		 <property name="customerName" type="java.lang.String"/>
+	 </subclass>
+		</class>
+</hibernate-mapping>

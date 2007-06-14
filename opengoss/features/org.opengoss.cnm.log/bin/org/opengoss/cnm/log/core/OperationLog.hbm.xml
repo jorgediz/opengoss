@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.opengoss.cnm.log.core">
+	<class name="OperationLog" table="lm_operation_log" lazy="false"
+		dynamic-insert="true" dynamic-update="true" >
+		<id name="id" type="long" column="permision_id">
+			<generator class="native" />
+		</id>		                   
+		<property name="userName" type="string"></property>
+		<property name="time" type="date"></property>
+		<property name="userIP" type="string"></property>
+		<property name="action" type="string"></property>
+		<property name="result" type="string"></property>
+		<property name="description" type="string"></property>
+		<property name="userId" type="string"></property>
+	</class>
+
+</hibernate-mapping>

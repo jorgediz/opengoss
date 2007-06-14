@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+tbody.scrollContent tr.selected td {
+	background: yellow;
+}
+
+tbody.scrollContent tr.alternateRow td {
+	background: #e3edfa;
+}
+
+tbody.scrollContent tr:hover td {
+	background: #a6c2e7;
+}
+
+table thead th {
+	background: #94BEFF;
+}
+
+body{
+	font-size: 80%	
+}
+#pagination{
+	float:right;
+}

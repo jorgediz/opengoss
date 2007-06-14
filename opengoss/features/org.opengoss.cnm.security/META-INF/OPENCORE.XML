@@ -1,0 +1,31 @@
+<plugin id="Security" version="1.0" >
+
+	<service id="SemDao" scope="application" class="org.opengoss.cnm.security.internal.dao.SemDao">
+		<interface name="org.opengoss.cnm.security.core.dao.ISemDao"/>
+		<constructor>
+			<param ref="Hibernate:SessionFactory"/>
+		</constructor>
+		
+	</service>
+	
+	<service id="UserService" scope="application" class="org.opengoss.cnm.security.internal.service.UserService">
+		<interface name="org.opengoss.cnm.security.core.service.IUserService"/>
+		<property name="semDao" ref="SemDao" />
+	
+	</service>
+
+	<service id="AclEntryService" scope="application" class="org.opengoss.cnm.security.internal.service.AclEntryService">
+		<interface name="org.opengoss.cnm.security.core.service.IAclEntryService"/>
+		 	<property name="semDao" ref="SemDao" /> 
+	</service>
+	
+	<service id="UserDataService" scope="application" class="org.opengoss.cnm.security.internal.service.UserDataService">
+		<interface name="org.opengoss.cnm.security.core.service.IUserDataService"/>
+		<property name="userService" ref="UserService" />
+		<property name="aclEntryService" ref="AclEntryService" />
+		<property name="cnmLogger" ref="Log:CnmLogger" />
+	</service>	
+
+</plugin>
+
+		

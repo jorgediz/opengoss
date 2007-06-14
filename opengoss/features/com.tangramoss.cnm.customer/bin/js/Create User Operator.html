@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 用户管理-创建用户 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<script type="text/javascript" src="js/dojo.js"></script>
+<link href="css/Create User Operator.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+		<div id="body">
+		<div id="tips"> </di>基本信息 <br />
+		用户信息: 输入用户信息和为用户分配角色和权限
+		</div>
+		<hr />
+			<fieldset >
+				<legend>必填信息</legend>
+				
+				<div >
+				<label class="firstColumn"> 登录名: </label><input  type="text" 
+				 	dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn"> 邮箱: </label><input  class="secText" type="text"
+					dojoType="EmailTextbox"
+							trim="true" 
+							required="true" 
+							invalidMessage="Invalid"
+							missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" > 密码: </label>  <input  type="text" 
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				
+				<label class="secColumn" > 确认密码: </label><input class="secText" type="text"  
+					dojoType="ValidationTextBox"
+									required="true" 
+									ucfirst="true"
+									missingMessage="*"/>
+				</div>
+				<div>
+				<label class="firstColumn" >选择角色: </label> 
+					<select name="roleSel">
+									<option value="opera">运维人员
+									<option value="manager">大客户经理
+									
+					</select>
+				</div>
+				<p></p>
+			</fieldset>
+			<fieldset id="option">
+				<legend>可选信息</legend>
+					<div  > <label class="firstColumn">用户名: </label> <input type="text" /> 
+							<label class="thColumn"> 地址:</label> <input type="text" />
+					</div>
+					<div > <label class="firstColumn">手机号码: </label> <input type="text" /> 
+							<label class="thColumn">固定电话:</label> <input type="text" />
+					</div>
+					<div  > <label class="firstColumn">公司: </label> <input type="text" />
+					 <label class="thColumn">部门:</label> <input type="text" />
+					 </div>
+					
+					<p></p>
+				
+			</fieldset>
+			
+	
+	<div id="bgroup" align="right">
+	
+				<input type="button" id="ok" value="确定"/>
+				
+				<input type="button" id="cancel" value="取消"/>
+				
+	</div>
+</body>
+</html>	
+	
+	
+	

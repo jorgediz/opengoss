@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="TrapProbe" version="1.0">
+	<service id="TrapProbe" scope="component" class="org.opengoss.probe.internal.trap.TrapProbe">
+		<interface name="org.opengoss.probe.trap.ITrapProbe"/>
+		<constructor>
+			<param ref="Esper:EsperService"/>
+		</constructor>
+	</service>
+	<service id="EngineConfig" scope="component" class="org.opengoss.probe.internal.trap.EngineConfiguration">
+		<interface name="org.opengoss.probe.trapd.IEngineConfiguration"/>
+	</service>
+	<service id="ParseEngine" scope="component" class="org.opengoss.probe.internal.trap.TrapParseEngine">
+		<interface name="org.opengoss.probe.trap.ITrapParseEngine"/>
+		<constructor>
+			<param ref="TrapProbe"/>
+			<param ref="EngineConfig"/>
+			
+		</constructor>
+	</service>
+	<service id="TrapReceiver" scope="component" class="org.opengoss.probe.internal.trap.TrapReceiver">
+		<interface name="org.opengoss.probe.trapd.ITrapReceiver"/>
+		<constructor>
+			<param ref="TrapProbe"/>
+			<param ref="Snmp:SnmpTrapd"/>
+		</constructor>
+	</service>
+	<service id="EventDispatcher" scope="application" class="org.opengoss.probe.internal.trap.EventDispatcher">
+		<interface name="org.opengoss.probe.trap.IEventDispatcher"/>
+		<constructor>
+			<param ref="TrapProbe"/>
+		</constructor>
+	</service>
+	<extension-point id="EventSender" target="EventDispatcher" bindMethod="add" unbindMethod="remove"/>
+	<extension id="RawEventHandler" point="EventSender">
+		<param ref="AlarmEngine:RawEventSender"/>
+	</extension>
+</plugin>

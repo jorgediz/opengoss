@@ -1,0 +1,43 @@
+<plugin id="Log" version="1.0" >
+	 <service id ="LmDao" scope="component" class="org.opengoss.cnm.log.internal.dao.LmDao" >
+		<interface name = "org.opengoss.cnm.log.internal.dao.ILmDao" />
+		<constructor>
+			<param ref="Hibernate:SessionFactory"/>
+		</constructor>
+	</service>
+
+	 <service id ="LogItemMgr" scope="component" class="org.opengoss.cnm.log.internal.service.LogItemMgr" >
+				 <property name="lmDao" ref="LmDao" /> 
+	</service>
+	
+	<service id ="LogTaskEngine" scope="component" class="org.opengoss.cnm.log.internal.service.LogTaskEngine" >
+		<interface name = "org.opengoss.cnm.log.internal.service.ILogTaskEngine" />
+				<property name="lmDao" ref="LmDao" />
+				<property name="logItemMgr" ref="LogItemMgr" />
+	</service>
+
+	<service id ="CnmLogger" scope="application" class="org.opengoss.cnm.log.internal.service.CnmLogger" >
+		<interface name = "org.opengoss.cnm.log.core.service.ICnmLog" />
+		 <property name="logTaskEngine" ref="LogTaskEngine" /> 
+	</service>
+	
+	<service id ="LogService" scope="component" class="org.opengoss.cnm.log.internal.service.LogManager" >
+		<interface name = "org.opengoss.cnm.log.core.service.ILogService" />
+			<property name="logTaskEngine" ref="LogTaskEngine" /> 
+			<property name="logItemMgr" ref="LogItemMgr" />
+		<!--	<property name="logUtils" ref="LogUtils" /> -->
+			<property name="lmDao" ref="LmDao" />
+	</service>
+	
+
+</plugin>
+	
+	
+	
+	
+
+	
+
+
+		
+		

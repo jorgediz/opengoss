@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="AlarmCore" version="1.0">
+	<service id="AlarmDao" scope="application" class="org.opengoss.alarm.internal.core.HibernateAlarmDao">
+		<interface name="org.opengoss.alarm.core.IAlarmDao"/>
+		<constructor>
+			<param ref="Hibernate:SessionFactory"/>
+		</constructor>
+	</service>
+	
+	<service id="AlarmRuleDao" scope="application" class="org.opengoss.alarm.internal.core.HibernateAlarmRuleDao">
+		<interface name="org.opengoss.alarm.core.IAlarmRuleDao"/>
+		<constructor>
+			<param ref="Hibernate:SessionFactory"/>
+		</constructor>
+	</service>
+	
+	
+</plugin>

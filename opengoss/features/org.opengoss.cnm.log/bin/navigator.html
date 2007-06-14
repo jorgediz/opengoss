@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>主菜单</title>
+	<script type="text/javascript" src="/dojo/dojo.js"></script>
+	<link href="css/navigator.css" rel="stylesheet" type="text/css"/>
+	<script language="JavaScript" type="text/javascript">
+		dojo.require("dojo.widget.Button");
+		dojo.require("dojo.widget.AccordionContainer");
+		dojo.require("dojo.widget.ContentPane");
+		dojo.require("dojo.widget.Tooltip");
+		dojo.hostenv.writeIncludes();
+	</script>
+	<style>
+	#main{
+		width:99%;
+		height:95%
+	}
+	</style>
+</head>
+
+<body>
+	<div dojoType="AccordionContainer" labelNodeClass="label" containerNodeClass="accBody" 
+	style="border: 2px solid black;" id="main" >
+		
+        <div dojoType="ContentPane" label="用户管理">
+				
+	    <div>
+	 <!-- 
+	 <input type="button" onclick="top.frames['mainFrame'].location.href='UserManagement.html'" value="User List" name="List User" />	      	
+	  -->
+		</div>		
+		
+        </div>
+
+		<div dojoType="ContentPane" label="日志管理">
+			<input type="button" onclick="top.frames['mainFrame'].location.href='SystemLog.html'"
+				value="SysLog List" name="List SysLog"/>
+			<input type="button" onclick="top.frames['mainFrame'].location.href='OperationLog.html'" 
+				value="OperaLog List" name="List Opera"/>
+         
+			
+		</div>
+	
+		<div dojoType="ContentPane" label="系统设置">
+	<!--
+			<input type="button" onclick="top.frames['mainFrame'].location.href='System Config.html'" 
+				 value="SystemConfig" name="ConfigSystem"/>
+	-->		
+		</div>
+
+</div>
+
+</body>
+</html>
