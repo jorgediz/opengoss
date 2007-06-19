@@ -1,0 +1,16 @@
+0.4.0:
+1. fix service registry bug. When register application level services, all the services belong to "org.opengoss.core.osgi" bundle. It's inappropriate. 
+0.3.0 change log:
+1. Add an interface "IPluginContextAware". A service that implements this interfacce will be injected the "IPluginContext" into.
+
+0.2.0 change log:
+
+New Feature:
+1. support to use "JVM Property" in property injection, for example:   
+<property name="port" value="${org.opengoss.core.rmi.registry.port}"/>
+
+2. we add "org.opengoss.core.rmi" bundle to support to distribute 
+components and services in different JVMs.
+
+API Changes:
+1. Change "UID" to "URI".

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="Jetty">
+	<service id="WebContainer" scope="application" class="org.opengoss.web.internal.jetty.WebContainer">
+		<interface name="org.opengoss.web.core.IWebContainer"/>
+	</service>
+
+	<service id="WebServer" scope="application" class="org.opengoss.web.internal.jetty.WebServer">
+		<interface name="org.opengoss.web.core.IWebServer"/>
+		<property name="configuration" ref="WebCore:WebServerConfiguration"/>
+		<property name="webContainer" ref="WebContainer"/>
+	</service>
+</plugin>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="WebCore">
+	<service id="WebServerConfiguration" scope="application" class="org.opengoss.web.internal.WebServerConfiguration">
+		<interface name="org.opengoss.web.core.IWebServerConfiguration"/>
+	</service>
+	<service id="MarshallerRegistry" scope="application" class="org.opengoss.web.internal.MarshallerRegistry">
+		<interface name="org.opengoss.web.service.IMarshallerRegistry"/>
+	</service>
+	<service id="WSContainer" scope="application" class="org.opengoss.web.internal.WSContainer">
+		<interface name="org.opengoss.web.service.IWSContainer"/>
+		<property name="marshallerRegistry" ref="MarshallerRegistry"/>
+	</service>
+	<service id="WSExporter" scope="application" class="org.opengoss.web.internal.WSExporter">
+		<interface name="org.opengoss.web.service.IWSExporter"/>
+		<constructor>
+			<param ref="WSContainer"/>	
+		</constructor>
+	</service>
+	<dynamic-extension-point id="Marshaller" target="MarshallerRegistry"
+		bindMethod="addMarshaller" unbindMethod="removeMarshaller"/>
+	<dynamic-extension-point id="WebService" target="WSExporter" 
+		bindMethod="export" unbindMethod="unexport"/>
+	<dynamic-extension-point id="Class" target="MarshallerRegistry"
+		bindMethod="addAliasClass" unbindMethod="removeAliasClass"/>
+</plugin>
+

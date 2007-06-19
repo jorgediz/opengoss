@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="hibernate">
+	<service id="SessionFactoryBuilder" scope="plugin" class="org.opengoss.dao.internal.hibernate.SessionFactoryBuilder">
+		<constructor>
+			<param ref="intf:org.eclipse.core.runtime.IExtensionRegistry"/>
+		</constructor>
+	</service>
+</plugin>

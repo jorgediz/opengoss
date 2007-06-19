@@ -1,0 +1,7 @@
+javax.servlet
+javax.servlet.http
+org.opengoss.web.core
+org.opengoss.web.internal
+org.opengoss.web.service
+org.opengoss.web.service.annotation
+org.opengoss.web.service.meta
