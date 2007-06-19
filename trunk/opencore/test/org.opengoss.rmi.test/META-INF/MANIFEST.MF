@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test Plug-in
+Bundle-SymbolicName: org.opengoss.rmi.test
+Bundle-Version: 1.0.0
+Bundle-Localization: plugin
+Export-Package: org.opengoss.rmi.test

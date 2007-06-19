@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Client Plug-in
+Bundle-SymbolicName: org.opengoss.rmi.test.client
+Bundle-Version: 1.0.0
+Bundle-ClassPath: bin/
+Bundle-Activator: org.opengoss.rmi.test.client.Activator
+Bundle-Localization: plugin
+Import-Package: org.opengoss.rmi,
+ org.osgi.framework;version="1.3.0"
+Require-Bundle: org.springframework,
+ org.opengoss.rmi.test
