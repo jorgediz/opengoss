@@ -1,0 +1,102 @@
+!SESSION 2007-02-01 13:06:36.681 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_08
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Command-line arguments:  -dev file:/opt/demo/.metadata/.plugins/org.eclipse.pde.core/OSGi Framework/dev.properties -os linux -ws gtk -arch x86 -console -clean
+
+!ENTRY org.opengoss.example.log.consumer 4 0 2007-02-01 13:06:40.271
+!MESSAGE 
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.opengoss.example.log.consumer.internal.Activator.start() of bundle org.opengoss.example.log.consumer.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1018)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:974)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:327)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:350)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1115)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:581)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:503)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:279)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:463)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:189)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:291)
+Caused by: java.lang.NullPointerException
+	at org.opengoss.example.log.consumer.internal.LogConsumer.consume(LogConsumer.java:18)
+	at org.opengoss.example.log.consumer.internal.Activator.startPlugin(Activator.java:12)
+	at org.opengoss.core.PluginActivator.start(PluginActivator.java:103)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:999)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:993)
+	... 10 more
+Root exception:
+java.lang.NullPointerException
+	at org.opengoss.example.log.consumer.internal.LogConsumer.consume(LogConsumer.java:18)
+	at org.opengoss.example.log.consumer.internal.Activator.startPlugin(Activator.java:12)
+	at org.opengoss.core.PluginActivator.start(PluginActivator.java:103)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:999)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:993)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:974)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:327)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:350)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1115)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:581)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:503)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:279)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:463)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:189)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:291)
+
+!ENTRY org.opengoss.exmple.log.provider 4 0 2007-02-01 13:06:40.345
+!MESSAGE 
+!STACK 0
+org.osgi.framework.BundleException: Exception in org.opengoss.example.log.internal.Activator2.start() of bundle org.opengoss.exmple.log.provider.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1018)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:974)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:327)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:350)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1115)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:581)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:503)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:279)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:463)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:189)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:291)
+Caused by: java.lang.NullPointerException
+	at org.opengoss.core.internal.registry.ApplicationServiceRegistry.registerService(ApplicationServiceRegistry.java:100)
+	at org.opengoss.core.internal.registry.PluginServiceRegistry.registerService(PluginServiceRegistry.java:148)
+	at org.opengoss.core.internal.registry.ServiceRegistryBuilder.registerServices(ServiceRegistryBuilder.java:172)
+	at org.opengoss.core.internal.registry.ServiceRegistryBuilder.build(ServiceRegistryBuilder.java:66)
+	at org.opengoss.core.internal.registry.PluginServiceRegistry.build(PluginServiceRegistry.java:177)
+	at org.opengoss.core.PluginActivator.start(PluginActivator.java:83)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:999)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:993)
+	... 10 more
+Root exception:
+java.lang.NullPointerException
+	at org.opengoss.core.internal.registry.ApplicationServiceRegistry.registerService(ApplicationServiceRegistry.java:100)
+	at org.opengoss.core.internal.registry.PluginServiceRegistry.registerService(PluginServiceRegistry.java:148)
+	at org.opengoss.core.internal.registry.ServiceRegistryBuilder.registerServices(ServiceRegistryBuilder.java:172)
+	at org.opengoss.core.internal.registry.ServiceRegistryBuilder.build(ServiceRegistryBuilder.java:66)
+	at org.opengoss.core.internal.registry.PluginServiceRegistry.build(PluginServiceRegistry.java:177)
+	at org.opengoss.core.PluginActivator.start(PluginActivator.java:83)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:999)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:993)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:974)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:327)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:350)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1115)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:581)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:503)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:279)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:463)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:189)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:291)
+
+!ENTRY org.eclipse.osgi 4 0 2007-02-01 13:06:40.362
+!MESSAGE Bundle initial@reference:file:../../../opt/demo/org.opengoss.example.log.consumer/ [5] is not active.
+
+!ENTRY org.eclipse.osgi 4 0 2007-02-01 13:06:40.363
+!MESSAGE Bundle initial@reference:file:../../../opt/demo/org.opengoss.example.log.provider/ [6] is not active.

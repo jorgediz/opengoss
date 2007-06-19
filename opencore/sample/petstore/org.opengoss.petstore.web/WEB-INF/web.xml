@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<!--
+		- Loads the root application context of this web app at startup,
+		- by default from "/WEB-INF/applicationContext.xml".
+		- Note that you need to fall back to Spring's ContextLoaderServlet for
+		- J2EE servers that do not follow the Servlet 2.4 initialization order.
+		-
+		- Use WebApplicationContextUtils.getWebApplicationContext(servletContext)
+		- to access it anywhere in the web application, outside of the framework.
+		-
+		- The root context is the parent of all servlet-specific contexts.
+		- This means that its beans are automatically available in these child contexts,
+		- both for getBean(name) calls and (external) bean references.
+	-->
+	
+	<servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.opengoss.web.internal.jetty.DefaultServlet</servlet-class>
+    <init-param>
+      <param-name>acceptRanges</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>dirAllowed</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>redirectWelcome</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCacheSize</param-name>
+      <param-value>2000000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCachedFileSize</param-name>
+      <param-value>254000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>maxCachedFiles</param-name>
+      <param-value>1000</param-value>
+    </init-param>
+    <init-param>
+      <param-name>useFileMappedBuffer</param-name>
+      <param-value>true</param-value>
+    </init-param>  
+    <load-on-startup>0</load-on-startup>	
+	</servlet> 
+	<servlet-mapping> 
+  	<servlet-name>default</servlet-name> 
+  	<url-pattern>/</url-pattern> 
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>WelcomeRpcController</servlet-name>
+		<servlet-class>
+			au.com.gworks.gwt.petstore.server.WelcomeRpcControllerImpl
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+				
+	<servlet-mapping>
+		<servlet-name>WelcomeRpcController</servlet-name>
+		<url-pattern>/welcomeRpcController.rpc</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AccountRpcController</servlet-name>
+		<servlet-class>
+			au.com.gworks.gwt.petstore.server.AccountRpcControllerImpl
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+				
+	<servlet-mapping>
+		<servlet-name>AccountRpcController</servlet-name>
+		<url-pattern>/accountRpcController.rpc</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ShoppingRpcController</servlet-name>
+		<servlet-class>
+			au.com.gworks.gwt.petstore.server.ShoppingRpcControllerImpl
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+				
+	<servlet-mapping>
+		<servlet-name>ShoppingRpcController</servlet-name>
+		<url-pattern>/shoppingRpcController.rpc</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>StoreSearchRpcController</servlet-name>
+		<servlet-class>
+			au.com.gworks.gwt.petstore.server.StoreSearchRpcControllerImpl
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+				
+	<servlet-mapping>
+		<servlet-name>StoreSearchRpcController</servlet-name>
+		<url-pattern>/storeSearchRpcController.rpc</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>

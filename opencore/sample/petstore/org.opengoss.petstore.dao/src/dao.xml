@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE daoConfig
+    PUBLIC "-//ibatis.apache.org//DTD DAO Configuration 2.0//EN"
+    "http://ibatis.apache.org/dtd/dao-2.dtd">
+
+<daoConfig>
+
+  <context>
+  
+    <transactionManager type="SQLMAP">
+      <property name="SqlMapConfigResource" value="SqlMapConfig.xml"/>
+    </transactionManager>
+    
+	<dao interface="org.opengoss.petstore.dao.AccountDao" implementation="org.opengoss.petstore.dao.ibatis.SqlMapAccountDao"/>
+	<dao interface="org.opengoss.petstore.dao.CategoryDao"  implementation="org.opengoss.petstore.dao.ibatis.SqlMapCategoryDao"/>
+	<dao interface="org.opengoss.petstore.dao.ItemDao"  implementation="org.opengoss.petstore.dao.ibatis.SqlMapItemDao"/>
+	<dao interface="org.opengoss.petstore.dao.OrderDao"  implementation="org.opengoss.petstore.dao.ibatis.SqlMapOrderDao"/>
+	<dao interface="org.opengoss.petstore.dao.ProductDao"  implementation="org.opengoss.petstore.dao.ibatis.SqlMapProductDao"/>
+    
+  </context>
+
+</daoConfig>

@@ -1,0 +1,30 @@
+.std-EastWestHorizPanels-east {
+	position: relative;
+	vertical-align: middle;
+}
+
+.std-EastWestHorizPanels-west {
+	position: relative;
+	vertical-align: middle;
+}
+
+.std-align-east, .std-EastWestHorizPanels-east, .std-align-all-east * {
+	float: right;
+}
+
+.std-align-west, .std-EastWestHorizPanels-west, .std-align-all-west * {
+	float: left;
+}
+
+.std-padding {
+	padding: 4px;
+}
+
+.std-lpadding {
+	padding-left: 4px;
+}
+
+.std-client-width {
+	clear: both;
+	width: 99%;
+}

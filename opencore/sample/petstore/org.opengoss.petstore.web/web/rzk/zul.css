@@ -1,0 +1,33 @@
+.zk-splitter {
+	position: relative; 
+	cursor: move; 
+}
+
+.zk-splitter-collapse {
+	cursor: default; 
+}
+
+.zk-splitter-vert {
+	background-image: url(vsplt.gif); 
+}
+
+.zk-splitter-vert, .zk-splitter-vert-sz {
+	height: 8px; 
+	width: 100%;
+}
+
+.zk-splitter-horiz {
+	background-image: url(hsplt.gif); 
+}
+
+.zk-splitter-horiz, .zk-splitter-horiz-sz {
+	width: 8px; 
+	height: 100%;
+}
+
+td.vbox {
+	margin: 0; padding-bottom: 0.4em;
+}
+td.hbox {
+	margin: 0; padding-right: 0.6em;
+}

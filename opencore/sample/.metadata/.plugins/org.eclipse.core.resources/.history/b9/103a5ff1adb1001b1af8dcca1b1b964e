@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Log API Plug-in
+Bundle-SymbolicName: org.opengoss.exmple.log.api
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: ery.lee@gmail.com
+Import-Package: org.osgi.framework;version="1.3.0",
+ org.osgi.util.tracker;version="1.3.2"
+Export-Package: org.opengoss.example.log

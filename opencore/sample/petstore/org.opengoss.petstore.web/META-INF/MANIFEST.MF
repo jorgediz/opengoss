@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PetStore GWT Plug-in
+Bundle-SymbolicName: org.opengoss.petstore.web
+Bundle-Version: 1.0.0
+Bundle-Activator: org.opengoss.petstore.gwt.Activator
+Import-Package: org.apache.commons.logging;version="1.1.0",
+ org.osgi.framework;version="[1.3.0,1.4.0]"
+Eclipse-LazyStart: true
+Require-Bundle: org.opengoss.core.osgi,
+ org.opengoss.dao.core,
+ org.opengoss.web.core,
+ org.opengoss.web.gwt,
+ org.opengoss.petstore.dao
+Bundle-ClassPath: .

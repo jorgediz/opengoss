@@ -1,0 +1,9 @@
+<module>
+	<inherits name='com.google.gwt.user.User'/>
+	<inherits name='org.javaongems.gwk.GoogleWidgetKit'/>
+	<inherits name='org.javaongems.rzk.ReverseZk'/>
+	<inherits name='org.javaongems.std.StandardWidgets'/>
+	<inherits name='org.javaongems.win.WinForms'/>
+	
+	<entry-point class='au.com.gworks.gwt.petstore.client.PetStore'/>
+</module>

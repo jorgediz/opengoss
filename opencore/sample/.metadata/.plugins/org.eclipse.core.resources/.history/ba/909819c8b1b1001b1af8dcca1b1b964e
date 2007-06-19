@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<plugin id="Log" uri="/log">
+	<service id="LogServiceConsole" scope="component" class="org.opengoss.example.internal.log.LogServiceConsole">
+		<interface name="org.opengoss.example.log.api.IConsole"/>
+		<property name="delegate" ref="intf:org.osgi.service.log.LogService"/>
+	</service>
+	
+	<service id="MyLogService" scope="network" class="org.opengoss.example.internal.log.MyLogService">
+		<interface name="org.opengoss.example.log.api.IMyLogService"/>
+	</service>
+	
+	<extension-point id="Console" target="MyLogService"
+		bindMethod="addConsole" unbindMethod="removeConsole"/>
+	
+	<extension id="StdOutConsole" point="Console">
+		<param class="org.opengoss.example.internal.log.StdOutConsole"/>
+	</extension>
+	
+	<extension id="LogServiceConsole" point="Console">
+		<param ref="LogServiceConsole"/>
+	</extension>
+</plugin>

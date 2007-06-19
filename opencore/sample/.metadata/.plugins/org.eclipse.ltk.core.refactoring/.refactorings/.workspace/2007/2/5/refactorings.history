@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project 'org.opengoss.exmple.log.api' to 'org.opengoss.example.log.provider'&#10;- Original element: 'org.opengoss.exmple.log.api'&#10;- Update references to refactored element" description="Rename Java project 'org.opengoss.exmple.log.api'" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=org.opengoss.exmple.log.api" name="org.opengoss.example.log.provider" references="true" stamp="1170294533384" version="1.0"/>
+</session>
