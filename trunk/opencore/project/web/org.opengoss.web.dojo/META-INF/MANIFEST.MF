@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.opengoss.ajax.dojo
+Bundle-Version: 0.4.1
+Bundle-Activator: org.opengoss.web.dojo.Activator
+Bundle-Vendor: %pluginProvider
+Import-Package: org.osgi.framework;version="1.3.0"
+Require-Bundle: org.opengoss.core.osgi,
+ org.opengoss.web.core
+Bundle-RequiredExecutionEnvironment: J2SE-1.4,
+ J2SE-1.5,
+ JavaSE-1.6
