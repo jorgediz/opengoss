@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<plugin id="LogConsumer" version="1.0">
+	<service id="Consumer" class="org.opengoss.example.log.consumer.internal.LogConsumer">
+		<interface name="org.opengoss.example.log.consumer.ILogConsumer"/>
+		<property name="logService" ref="Log:MyLogService"/>
+	</service>
+</plugin>

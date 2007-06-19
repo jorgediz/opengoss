@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cache-entry>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.UrlBaseRequestInfo_FieldSerializer" hash="FC002AFA362317CA7A50EEBAAAB3809B"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.AisleInfo_FieldSerializer" hash="9DEC0EFA345E1D5C97114C1B90020FC1"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.UrlProductRequestInfo_FieldSerializer" hash="BF25CC1644FFD745B0DECC11E1DEBF84"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.ShoppingRpcController_TypeSerializer" hash="BA15C051B58D46093568DDA383AB6D46"/>
+	<generated-type-hash class="com.google.gwt.user.client.rpc.SerializableException_FieldSerializer" hash="1CB9B63ABEC9BE7E663F6C56AA395208"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.AccountRpcController_TypeSerializer" hash="400718C5ED01C814818BC185C23DD61D"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.ShoppingRpcController_Proxy" hash="D88964D5C5E50C1C60014F21DA3867FB"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.AccountInfo_FieldSerializer" hash="1095A0722619280F7DA1F9DA19BC01ED"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.StoreSearchRpcController_TypeSerializer" hash="801B9D37D179C5E78814A9D35483A1DC"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.ItemInfo_FieldSerializer" hash="5A41CDF254807F1DA384D19B247419C8"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.BaseItemRefInfo_FieldSerializer" hash="42CAEEC7131F9990EE82CA75A7BAB168"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.CartItemRefInfo_FieldSerializer" hash="508CC259185B96CDB66294705AF44E31"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.WelcomeRpcController_TypeSerializer" hash="FC6A3924FD008D8BF12428738C1C1DB7"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.WelcomeRpcController_Proxy" hash="F760C57B9617629AD295307FACAFDE44"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.AccountRpcController_Proxy" hash="A2C7E5F54D5A40AAF1AE854895C5E302"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.ProductInfo_FieldSerializer" hash="A854F6F50B002E69F3C214537F0A18E0"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.StoreSearchRpcController_Proxy" hash="9F78534A6D61C000FB1ED7A806451009"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.UrlItemRequestInfo_FieldSerializer" hash="47385869E2642C2B450863C5C76BDBC9"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.CartInfo_FieldSerializer" hash="BF14F8F3B87EF841D62E0DBD5949C0AA"/>
+	<generated-type-hash class="au.com.gworks.gwt.petstore.client.service.ItemRefInfo_FieldSerializer" hash="38FFBE0F236A59B4BE19CADCADF62878"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.TextBoxImpl" out="com.google.gwt.user.client.ui.impl.TextBoxImplIE6"/>
+	<rebind-decision in="au.com.gworks.gwt.petstore.client.service.StoreSearchRpcController" out="au.com.gworks.gwt.petstore.client.service.StoreSearchRpcController_Proxy"/>
+	<rebind-decision in="au.com.gworks.gwt.petstore.client.service.ShoppingRpcController" out="au.com.gworks.gwt.petstore.client.service.ShoppingRpcController_Proxy"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.FocusImpl" out="com.google.gwt.user.client.ui.impl.FocusImpl"/>
+	<rebind-decision in="au.com.gworks.gwt.petstore.client.service.WelcomeRpcController" out="au.com.gworks.gwt.petstore.client.service.WelcomeRpcController_Proxy"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.FormPanelImpl" out="com.google.gwt.user.client.ui.impl.FormPanelImplIE6"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.HistoryImpl" out="com.google.gwt.user.client.impl.HistoryImplIE6"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.HTTPRequestImpl" out="com.google.gwt.user.client.impl.HTTPRequestImplIE6"/>
+	<rebind-decision in="com.google.gwt.user.client.impl.DOMImpl" out="com.google.gwt.user.client.impl.DOMImplIE6"/>
+	<rebind-decision in="au.com.gworks.gwt.petstore.client.PetStore" out="au.com.gworks.gwt.petstore.client.PetStore"/>
+	<rebind-decision in="com.google.gwt.user.client.ui.impl.PopupImpl" out="com.google.gwt.user.client.ui.impl.PopupImplIE6"/>
+	<rebind-decision in="au.com.gworks.gwt.petstore.client.service.AccountRpcController" out="au.com.gworks.gwt.petstore.client.service.AccountRpcController_Proxy"/>
+</cache-entry>

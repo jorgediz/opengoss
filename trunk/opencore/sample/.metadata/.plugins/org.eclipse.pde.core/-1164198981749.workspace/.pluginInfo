@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="128" class="org.opengoss.example.log.consumer.internal.Activator" name="Consumer Plug-in" project="org.opengoss.example.log.consumer">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="123" class="org.apache.commons.log.osgi.Activator" localization="plugin" name="%pluginName" project="org.apache.commons.log_2.0.0" provider="%pluginProvider">
+		<library name="."/>
+		<library name="lib/slf4j-api-1.1.0.jar"/>
+		<library name="lib/log4j-1.2.13.jar"/>
+		<library name="lib/jcl104-over-slf4j-1.1.0.jar"/>
+		<library name="lib/slf4j-log4j12-1.1.0.jar"/>
+	</bundle>
+	<bundle bundleID="126" class="org.opengoss.example.log.internal.Activator2" name="Provider Plug-in" project="org.opengoss.example.log.provider" provider="ery.lee">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="122" class="org.opengoss.core.internal.Activator" localization="plugin" name="%pluginName" project="org.opengoss.core.osgi" provider="%pluginProvider">
+		<library name="."/>
+		<library name="lib/xom-1.1.jar"/>
+	</bundle>
+	<bundle bundleID="127" class="org.knopflerfish.bundle.log.Activator" name="LogService" project="org.knopflerfish.log" provider="Knopflerfish"/>
+</map>

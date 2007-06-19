@@ -1,0 +1,4 @@
+#Thu Feb 01 16:06:35 CST 2007
+eclipse.preferences.version=1
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+org.eclipse.debug.ui.user_view_bindings=<?xml version\="1.0" encoding\="UTF-8"?>\n<viewBindings>\n<view id\="org.eclipse.ui.console.ConsoleView">\n<perspective id\="org.eclipse.pde.ui.PDEPerspective" userAction\="opened"/>\n<perspective id\="org.eclipse.jdt.ui.JavaPerspective" userAction\="closed"/>\n</view>\n</viewBindings>\n

@@ -1,0 +1,263 @@
+#productAisleHp {
+	height: 100%;
+}
+
+#productAisle {
+	margin-left: 4px;
+}
+
+#productAisle, #productAisleTd {
+	width: 130px;
+}
+
+#productCardTitleInfo {
+	width: auto;
+}
+
+#productCardListPrice {
+	width: 50px;
+}
+
+.ps-text-large {
+	font-size: 150%;
+	padding: 4px;
+}
+
+.ps-text-medium {
+	font-size: 125%;
+	padding: 2px;
+}
+
+.gwt-Button {
+   color:#050;
+   font-family:'trebuchet ms',helvetica,sans-serif;
+   font-size:84%;
+   font-weight:bold;
+}
+
+.ps-SignIn-DialogBox {
+	border: 1px solid black;
+	background-color: white;
+	margin: 5px;
+}
+
+.ps-SignIn-DialogBox .Caption {
+	background-image: url(blue_gradient.gif);
+	background-repeat: repeat-x;
+	padding: 4px;
+	padding-bottom: 8px;
+	font-weight: bold;
+	cursor: default;
+}
+
+.ps-CartView {
+}
+
+.ps-CartView-qtySle {
+	width: 40px;
+}
+
+.ps-CartView-items {
+	background-color: #ffffff;
+}
+
+.ps-CartView-oos{
+	background-color: #ee8eef7;
+}
+
+.ps-CartMonitorView {
+	background-color: #ffffff;
+	width: 100%;
+	margin: 5px;
+}
+	
+.ps-StoreSearchBar-logo {
+	height: 48px;
+	width: 54px;
+}
+
+.ps-StoreSearchBar-title {
+	font-size: 18pt;
+	padding: 4px;
+}
+
+.ps-ewp-mainGroupSections {
+	background-color: #7799dd;
+	color: #ffffff;
+	margin: 4px;
+	padding: 4px; 
+	height: 32px;
+	width: 99%;
+}
+
+.ps-ewp-mainGroupSections-txt {
+	color: #ffffff;
+}
+
+.ps-ewp-subGroupSections {
+	background-color: #c3d9ff;
+	padding: 4px;
+	height: 32px;
+	width: 99%;
+}
+
+.ps-GridRow td {
+	border-bottom: 1px solid #87b3ff;
+}
+
+.ps-GridRow-sel {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.ps-ProductCardView {
+	width: 99%;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.ps-ProductCardView-img {
+	text-align: center;
+}
+
+.ps-ProductCardView-fldNm {
+	text-align: right;
+	padding: 4px;
+}
+
+.ps-ProductCardView-fldNms {
+	width: 150px;
+}
+
+
+
+.ps-ProductCardView-val {
+	text-align: left;
+	padding: 4px;
+}
+
+body * {
+	font-size: 8pt;
+}
+
+body { 
+	background-color: white;
+	color: black;
+	font-family: Verdana, Arial, sans-serif;
+	margin: 5px;
+}
+
+a {	
+	color: darkblue;
+}
+
+a:visited {	
+	color: darkblue; 
+}
+
+.gwt-DialogBox {
+	background-color: white;
+	margin: 5px;
+}
+
+.gwt-DialogBox .Caption {
+	background-image: url(blue_gradient.gif);
+	background-repeat: repeat-x;
+	padding: 4px;
+	padding-bottom: 8px;
+	font-weight: bold;
+	cursor: default;
+}
+
+.gwt-MenuBar {
+	background-color: #C3D9FF;
+	cursor: default;
+}
+
+.gwt-MenuItem {
+	font-size: 80%;
+	margin: 1px;
+	cursor: default;
+}
+
+.gwt-MenuItem-selected {
+	background-color: #E8EEF7;
+}
+
+.gwt-Tree {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.gwt-Tree .gwt-TreeItem {
+	font-size: 80%;
+	cursor: default;
+}
+
+.gwt-Tree .gwt-TreeItem-selected {
+	background-color: #C3D9FF;
+}
+
+.gwt-StackPanel {
+	background-color: white;
+	border: 1px solid #AAAAAA;
+	width: 15em;
+}
+
+.gwt-StackPanel .gwt-StackPanelItem {
+	background-image: url(blue_gradient.gif);
+	background-repeat: repeat-x;
+	background-color: #EEEEEE;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.gwt-StackPanel .gwt-StackPanelItem-selected {
+}
+
+.gwt-TabPanel {
+	
+}
+
+.gwt-TabPanelBottom {
+	border-left: 1px solid #87b3ff;
+	border-right: 1px solid #87b3ff;
+	border-bottom: 1px solid #87b3ff;
+}
+
+.gwt-TabBar {
+	font-size: smaller;
+}
+
+.gwt-TabBar .gwt-TabBarFirst {
+	height: 100%;
+	border-bottom: 1px solid #87b3ff;
+	border-right: 1px solid #87b3ff;
+	padding-left: 3px;
+}
+
+.gwt-TabBar .gwt-TabBarRest {
+	border-bottom: 1px solid #87b3ff;
+	padding-right: 3px;
+}
+
+.gwt-TabBar .gwt-TabBarItem {
+	border-top: 1px solid #87b3ff;
+	border-bottom: 1px solid #87b3ff;
+	padding: 2px;
+	cursor: pointer;
+	cursor: hand;
+	white-space: nowrap;
+	border-right: 1px solid #87b3ff;
+}
+
+.gwt-TabBar .gwt-TabBarItem-selected {
+	font-weight: bold;
+	background-color: #e8eef7;
+	border-top: 1px solid #87b3ff;
+	border-right: 1px solid #87b3ff;
+	border-bottom: 1px solid #e8eef7;
+	padding: 2px;
+	cursor: default;
+	white-space: nowrap;
+}

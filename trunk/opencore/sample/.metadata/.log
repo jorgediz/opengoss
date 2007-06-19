@@ -1,0 +1,127 @@
+!SESSION 2007-02-01 09:44:29.117 -----------------------------------------------
+eclipse.buildId=I20061214-1445
+java.version=1.5.0_08
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Command-line arguments:  -data /opt/demo -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.core.resources 4 2 2007-02-01 12:45:02.255
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateSingleton(BundleErrorReporter.java:210)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateBundleSymbolicName(BundleErrorReporter.java:193)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateContent(BundleErrorReporter.java:89)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkManifestFile(ManifestConsistencyChecker.java:69)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkThisProject(ManifestConsistencyChecker.java:55)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:40)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:621)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:163)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:194)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:243)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:299)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:331)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:156)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+
+!ENTRY org.eclipse.core.resources 2 75 2007-02-01 12:45:02.525
+!MESSAGE Errors during build.
+!SUBENTRY 1 org.eclipse.pde.core 2 75 2007-02-01 12:45:02.534
+!MESSAGE Errors running builder 'Plug-in Manifest Builder' on project 'org.knopflerfish.log'.
+!SUBENTRY 1 org.eclipse.pde.core 2 75 2007-02-01 12:45:02.534
+!MESSAGE java.lang.NullPointerException encountered while running Plug-in Manifest Builder.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateSingleton(BundleErrorReporter.java:210)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateBundleSymbolicName(BundleErrorReporter.java:193)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateContent(BundleErrorReporter.java:89)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkManifestFile(ManifestConsistencyChecker.java:69)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkThisProject(ManifestConsistencyChecker.java:55)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:40)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:621)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:163)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:194)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:243)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:299)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:331)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:156)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+!SESSION 2007-02-01 14:04:58.045 -----------------------------------------------
+eclipse.buildId=I20061214-1445
+java.version=1.5.0_08
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=zh_CN
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.core.jobs 4 2 2007-02-01 14:34:20.959
+!MESSAGE An internal error occurred during: "Launching".
+!STACK 0
+java.lang.NullPointerException
+	at java.util.Hashtable.put(Hashtable.java:396)
+	at org.eclipse.pde.ui.launcher.EquinoxLaunchConfiguration.saveConfigurationFile(EquinoxLaunchConfiguration.java:82)
+	at org.eclipse.pde.ui.launcher.EquinoxLaunchConfiguration.getProgramArguments(EquinoxLaunchConfiguration.java:64)
+	at org.eclipse.pde.ui.launcher.AbstractPDELaunchConfiguration.launch(AbstractPDELaunchConfiguration.java:74)
+	at org.eclipse.pde.ui.launcher.OSGiLaunchConfigurationDelegate.launch(OSGiLaunchConfigurationDelegate.java:48)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:734)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:613)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:775)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$7.run(DebugUIPlugin.java:965)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+
+!ENTRY org.eclipse.core.resources 4 2 2007-02-01 14:54:21.273
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateSingleton(BundleErrorReporter.java:210)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateBundleSymbolicName(BundleErrorReporter.java:193)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateContent(BundleErrorReporter.java:89)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkManifestFile(ManifestConsistencyChecker.java:69)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkThisProject(ManifestConsistencyChecker.java:55)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:40)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:621)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:163)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:194)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:243)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:299)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:331)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:156)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+
+!ENTRY org.eclipse.core.resources 2 75 2007-02-01 14:54:21.282
+!MESSAGE Errors during build.
+!SUBENTRY 1 org.eclipse.pde.core 2 75 2007-02-01 14:54:21.283
+!MESSAGE Errors running builder 'Plug-in Manifest Builder' on project 'org.opengoss.example.log.consumer'.
+!SUBENTRY 1 org.eclipse.pde.core 2 75 2007-02-01 14:54:21.283
+!MESSAGE java.lang.NullPointerException encountered while running Plug-in Manifest Builder.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateSingleton(BundleErrorReporter.java:210)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateBundleSymbolicName(BundleErrorReporter.java:193)
+	at org.eclipse.pde.internal.core.builders.BundleErrorReporter.validateContent(BundleErrorReporter.java:89)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkManifestFile(ManifestConsistencyChecker.java:69)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.checkThisProject(ManifestConsistencyChecker.java:55)
+	at org.eclipse.pde.internal.core.builders.ManifestConsistencyChecker.build(ManifestConsistencyChecker.java:40)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:621)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:163)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:194)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:243)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:299)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:331)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:156)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)

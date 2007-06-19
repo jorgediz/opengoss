@@ -1,0 +1,59 @@
+package org.opengoss.example.internal.log;
+
+import org.opengoss.example.log.IMyLogService;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.log.LogService;
+import org.osgi.util.tracker.ServiceTracker;
+
+public class Activator implements BundleActivator {
+
+	private ServiceTracker logServiceTracker = null;
+
+	private ServiceRegistration myLogServiceReg = null;
+
+	MyLogService myLogService = null;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 */
+	public void start(BundleContext context) throws Exception {
+		
+		logServiceTracker = new ServiceTracker(context, LogService.class
+				.getName(), null);
+		logServiceTracker.open();
+
+		myLogService = new MyLogService();
+//		myLogService.setDelegate((LogService) logServiceTracker.getService());
+
+		myLogServiceReg = context.registerService(
+				IMyLogService.class.getName(), myLogService, null);
+
+		myLogService.log("Bundle Started...");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext context) throws Exception {
+		if (myLogService != null) {
+			myLogService.log("Bundle Stopped...");
+			myLogService = null;
+		}
+		if (myLogServiceReg != null) {
+			myLogServiceReg.unregister();
+			myLogServiceReg = null;
+		}
+		if (logServiceTracker != null) {
+			// close the service tracker
+			logServiceTracker.close();
+			logServiceTracker = null;
+		}
+	}
+
+}

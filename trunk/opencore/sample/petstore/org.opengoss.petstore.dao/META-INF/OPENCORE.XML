@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="PetStoreDao" version="1.0">
+
+	<service id="DaoManager" scope="component"  class="org.opengoss.petstore.dao.ibatis.DaoManagerProxy">
+		<interface name="com.ibatis.dao.client.DaoManager"/>
+	</service>
+
+	<service id="DaoFacade" scope="application" class="org.opengoss.petstore.dao.ibatis.SqlMapDaoFacade">
+		<interface name="org.opengoss.petstore.dao.DaoFacade"/>
+		<constructor>
+			<param ref="DaoManager"/>
+		</constructor>
+	</service>
+</plugin>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.opengoss.core.IPluginServiceRegistry"/>
+<fullyQualifiedTypeName name="org.osgi.service.log.LogService"/>
+<fullyQualifiedTypeName name="org.osgi.framework.ServiceRegistration"/>
+<fullyQualifiedTypeName name="org.osgi.framework.ServiceReference"/>
+</qualifiedTypeNameHistroy>
