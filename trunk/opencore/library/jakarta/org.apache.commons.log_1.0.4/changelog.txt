@@ -1,0 +1,7 @@
+1.x
+1.x.x release is based on apache commons log and log4j. We found the ugly dynamic 
+logger discovery mechanism could not work well in OSGi environment. 
+
+2.x
+2.x.x release is based on SLF4J and log4J:)
+
